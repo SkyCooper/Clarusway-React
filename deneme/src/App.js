@@ -1,8 +1,9 @@
 import {Head, Nav, Footer as Foot} from "./components/header"
 import {Paragraf} from "./components/paragraf"
-import Kestane, {Buton} from "./components/button"
+import Myinput, { Buton } from "./components/button";
 import { Myform } from "./components/form"
 import Myimage from "./components/img";
+import "./index.css"
 
 
 function App (){
@@ -12,10 +13,10 @@ function App (){
       <Nav />
       <Foot />
       <Paragraf />
-      <Kestane/>
+      <Myinput />
       <Buton />
       <Myform />
-      <Myimage/>
+      <Myimage />
     </>
   );
 }

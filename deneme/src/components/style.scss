@@ -1,0 +1,12 @@
+$headerColor: #e9335a;
+$textBackColor: #74fb05;
+
+h1 {
+  background-color: $headerColor ;
+}
+
+p {
+  background-color: $textBackColor;
+  padding: 2rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
