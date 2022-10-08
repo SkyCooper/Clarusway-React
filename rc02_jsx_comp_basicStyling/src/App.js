@@ -22,8 +22,8 @@ function App() {
   return (
     <>
       <Header />
-      <Footer />
       <Content/>
+      <Footer />
     </>
   );
 }
