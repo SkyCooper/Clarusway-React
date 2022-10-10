@@ -15,7 +15,7 @@ const data = [
   },
   {
     id: 3,
-    name: "Marcus MERK",
+    name: "Claire MERK",
     job: "Grafiker",
     comment: "Tebrikler çok başarılı",
     img: "https://images.unsplash.com/photo-1610564558732-a36a4e28151c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydGFpdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
