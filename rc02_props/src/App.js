@@ -6,10 +6,12 @@ import data from "./data";
 function App() {
   return (
     <div>
-      {/* <Msg name = "Felix" age={38}/>
-      <Msg name = "Cooper"/>
-      <Msg name = "Helen"/>
-      {Msg({name : "Noah"})} */}
+      <Msg name="Felix" age={38} />
+      <Msg name="Cooper" />
+      <Msg name="Helen" />
+
+      {/* Msg componeneti aslında bir fonksiyon olduğundan böyle de yazılabilir.  */}
+      {Msg({ name: "Noah" })}
 
       {/* <Person name={data[0].name} img={data[0].img} tel={data[0].tel} />
       <Person name={data[1].name} img={data[1].img} tel={data[1].tel} />

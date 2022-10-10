@@ -11,8 +11,11 @@ const Person = (props) => {
     //   />
     //   <p>5324440444</p>
     // </div>
+
     <div style={{ textAlign: "center" }}>
-      {/* <p>Merhaba {name}</p> */}
+      <p>Merhaba {name}</p>
+      {/* Burada isim yazdırılıyor fakat onu da bir component haline getirdik */}
+
       <Msg name={name} />
       <img style={{ width: "200px" }} src={img} alt="img1" />
       <p>{tel}</p>
