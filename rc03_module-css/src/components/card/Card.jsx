@@ -1,11 +1,12 @@
 import Buton from "../buton/Buton";
-import "./Card.css";
+// import "./Card.css";
+import CardStyle from "./card.module.css";
 
 const Card = ({ id, title, image, btnName }) => {
   return (
-    <div key={id}>
-      <h1>{title}</h1>
-      <img src={image} alt={title} width="100px" />
+    <div>
+      <h1 className={CardStyle.title}>{title}</h1>
+      <img className={CardStyle["images"]} src={image} alt={title} />
       <Buton btn={btnName} />
     </div>
   );
