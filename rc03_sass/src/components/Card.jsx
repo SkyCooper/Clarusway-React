@@ -14,7 +14,7 @@ const Card = ({ data }) => {
             <img src={img} alt={name} />
             <div className={CardStyle.buttons}>
               <button className={CardStyle.btn1}>Add</button>
-              <button className={CardStyle.btn2}>Delete</button>
+              <button className={CardStyle["buttons--btn2"]}>Delete</button>
             </div>
           </div>
         );
