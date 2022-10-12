@@ -28,6 +28,13 @@ const UseStateCounter = () => {
   //?  2.si ise state'i degistirmeye izin veren bir setter metodudur.
   //? useState parametre olarak state'in ilk degerini alir.
   const [count, setCount] = useState(0); //? array destr.
+  const [person, setPerson] = useState({
+    name: "Cooper",
+    surname: "SKY",
+    age: 41,
+  });
+
+  console.log(person);
 
   const increment = () => {
     setCount(count + 1);
@@ -44,19 +51,42 @@ const UseStateCounter = () => {
     //?short-circut
     count > 0 && setCount(count - 1);
   };
+
+  const incAge = () => {
+    //? Bu sekilde bir atama ile sayisal deger state'in uzerine yazilmis oldu.
+    //? Dolayisiyla obje yapisi bozuldu.
+    // setPerson(person.age + 1);
+    // setPerson({ name: "Ahmet", surname: "Can", age: 44 }); //?böyle olur ama herşey değişir
+    // setPerson({age: 44 }); //? böyle olur ama sadece age görünür.
+
+    setPerson({ ...person, age: person.age + 1 });
+  };
   return (
     <div className="container text-center mt-4">
-      <h1>USESTATE HOOK</h1>
-      <h2 className="display-4 text-danger">COUNT: {count}</h2>
-      <button onClick={increment} className="btn btn-success">
-        INC
-      </button>
-      <button onClick={() => setCount(0)} className="btn btn-dark">
-        CLR
-      </button>
-      <button onClick={decrement} className="btn btn-danger">
-        DEC
-      </button>
+      <section>
+        <h1>USESTATE HOOK</h1>
+        <h2 className="display-4 text-danger">COUNT: {count}</h2>
+        <button onClick={increment} className="btn btn-success">
+          INC
+        </button>
+        <button onClick={() => setCount(0)} className="btn btn-dark">
+          CLR
+        </button>
+        <button onClick={decrement} className="btn btn-danger">
+          DEC
+        </button>
+      </section>
+
+      <section>
+        <h1>USESTATE OBJECT</h1>
+        <h2>{person.name}</h2>
+        <h2>{person.surname}</h2>
+        <h4>{person.age}</h4>
+        <button onClick={incAge} className="btn btn-info">
+          ChangeAge
+        </button>
+        {/* <button onClick={()=>setPerson({...person, age: person.age+1})} className="btn btn-info">ChangeAge</button> */}
+      </section>
     </div>
   );
 };
