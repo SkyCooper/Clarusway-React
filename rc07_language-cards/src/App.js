@@ -1,5 +1,13 @@
+import Card from "./components/Card";
+import Header from "./components/Header";
+
 function App() {
-  return <h1>APP</h1>;
+  return (
+    <>
+      <Header />
+      <Card />
+    </>
+  );
 }
 
 export default App;
