@@ -7,10 +7,17 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f6de91;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+/*! Lnguage Component için*/
+
+.lang-card:hover{
+  box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 0.5);
+}
+.lang-logo{
+  transition: all 0.5s;
+}
+.lang-card:hover .lang-logo{
+transform: scale(1.2);
 }
