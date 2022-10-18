@@ -22,7 +22,6 @@ import { useState, useEffect } from "react";
 //!   };
 //! }, []);
 
-
 //! useEffect(() => {
 //*   //* componentDidMount code + componentDidUpdate code */
 //!   return () => {
@@ -30,12 +29,10 @@ import { useState, useEffect } from "react";
 //!   };
 //! }, [var1, var2]);
 
-
 const UseEffectHook = () => {
+  //? snipet iskleti ve bölümlerin özellikleri;
   useEffect(() => {
-    //? snipet iskleti ve bölümlerin özellikleri;
     //? ComponentDidMount + ComponentDidUpdate bölümü
-
     return () => {
       //? Clean-up function (ComponentWillUnmount) bölümü
     };
@@ -60,16 +57,18 @@ const UseEffectHook = () => {
   //   }, 1000);
   // }, [count]);
 
-  //? ComponentDidount
-  const fetchFata = () => {
+  //?componentDidUnmount
+  const fetchData = () => {
     console.log("Data Fetched");
   };
+
   useEffect(() => {
-    const timerId = setInterval(fetchFata, 1000);
+    //! ComponentDidMount
+    const timerId = setInterval(fetchData, 1000);
     console.log("Mounting");
 
-    //? ComponentWillUnmount
     return () => {
+      //! componentWillUnmount
       clearInterval(timerId);
       console.log("Unmounting");
     };

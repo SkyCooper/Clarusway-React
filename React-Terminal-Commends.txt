@@ -9,13 +9,20 @@ npm install --save react react-dom
 
 SIFIRDAN PROJE OLUŞTURMAK İÇİN;
 yarn create react-app my-app --> var olan dizine my-app isimli proje oluşturur.
+veya npx create-react-app my-app
 yarn create react-app . var olan dizin içine yeni klasör eklemeden proje oluşturur.
 yarn start
 
 
-STARTER PROJEYİ ÇALIŞTIRMAK İÇİN
+STARTER PROJEYİ (Node.Module olmayan proje) ÇALIŞTIRMAK İÇİN
 yarn / yarn install
 yarn start
+
+
+NPM GÜNCELLEME:
+yarn add -g npm 
+veya
+npm i -g yarn
 
 
 SASS / SCSS İÇİN;
@@ -39,7 +46,7 @@ import Container from "react-bootstrap/Container"; --> veya böyle, (daha doğru
 
 
 BOOTSTRAP KURDUKTAN SONRA, AÇILIR MENULER VB ÇALIŞMASI İÇİN;
-script linklerini index.htmlede body kapanış yagı üzerine ekle,
+script linklerini index.htmlede body kapanış tagı üzerine ekle,
  
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 
@@ -56,4 +63,16 @@ FONTAWSOME İÇİN;
 index.html'de head tagı içerisine;
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+NETLIFY DEPLOY İŞLEMİ İÇİN;
+1- Manual Deploy:
+yarn run build komutu çalışınca klasör altında build klasörü oluşuyor.
+Bunu sürükle bırak yöntemi ile ilgili yere sürükle.
+2- Githup ile:
+a- önce projenin Githup reposu oluşturulur.
+b- Netlify içinden Add New site'den Import an existing project seçilir.
+c- Githupdan proje seçilir ve Deploy edilir. 
+ç- Domain settings'--> options 'den isim değişikliği yapılır.
+
 
