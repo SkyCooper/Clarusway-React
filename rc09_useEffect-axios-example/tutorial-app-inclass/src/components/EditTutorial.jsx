@@ -1,4 +1,8 @@
-const EditTutorial = () => {
+
+
+
+const EditTutorial = ({ tutor, getTutorials }) => {
+  console.log(tutor);
   return (
     <div>
       <div className="modal fade" id="edit-modal" tabIndex={-1}>
@@ -15,17 +19,24 @@ const EditTutorial = () => {
                 aria-label="Close"
               />
             </div>
-            <div className="modal-body">...</div>
+
+            <div className="modal-body">
+              <p>Title</p>
+              <input type="text" value={tutor[4]?.title} />
+              <br />
+              <p>Description</p>
+              <input type="text" value={tutor[3]?.description}/>
+            </div>
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-danger"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
+              <button type="button" className="btn btn-success">
+                Save Changes
               </button>
             </div>
           </div>
