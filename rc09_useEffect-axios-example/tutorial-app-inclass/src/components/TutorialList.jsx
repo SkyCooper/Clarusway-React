@@ -9,11 +9,15 @@ const TutorialList = ({ tutor, getTutorials }) => {
     const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
     try {
       await axios.delete(`${url}/${id}`);
-      // id vermez isek var olan bütün verileri siler
+      // id vermez isek var olan bütün verileri siler,
+      // url ve id yi beraber yazabilmek için backtick içinde yazıyoruz.
+      // axios yazarsak Get yapar default olarak, onun için başına delete yazıyoruz.
     } catch (error) {
       console.log(error);
     }
     getTutorials();
+    // sildikten sonra sayfanın refresh etmeden render olması için, home componenti içinden getTutorials() fonksiyonunu prop olarak yollayıp burada karşılıyor ve sonra çağırıyoruz.
+    //! <TutorialList tutor={tutorials} getTutorials={getTutorials} />
   };
 
   //! PUT (CRUD-Update)
@@ -70,6 +74,7 @@ const TutorialList = ({ tutor, getTutorials }) => {
                     type="button"
                     className="text-danger "
                     onClick={() => deleteTutorial(id)}
+                    //  id zaten yukarıdan dest edilmişti, parametre olarak verince arrow func çevirmek gerekli
                   />
                 </td>
               </tr>
