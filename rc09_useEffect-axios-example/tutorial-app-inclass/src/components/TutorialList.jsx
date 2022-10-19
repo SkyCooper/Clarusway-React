@@ -1,19 +1,33 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
+import EditTutorial from "./EditTutorial";
 
-const TutorialList = () => {
-  const tutorials = [
-    {
-      id: 1,
-      title: "JS",
-      description: "JS is a programming language",
-    },
-    {
-      id: 2,
-      title: "React",
-      description: "JS library for UI design",
-    },
-  ];
+const TutorialList = ({ tutor, getTutorials }) => {
+  //! DELETE (CRUD-Delete)
+  const deleteTutorial = async (id) => {
+    const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
+    try {
+      await axios.delete(`${url}/${id}`);
+      // id vermez isek var olan bütün verileri siler
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
+
+  //! PUT (CRUD-Update)
+  //! PUT: Whole Update, PATCH: Partially Update
+  const editTutorial = async ({ id, title, description }) => {
+    // const { id, title, description } = item;
+    const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
+    try {
+      await axios.put(`${url}/${id}`, { title, description });
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
 
   return (
     <div className="container mt-4">
@@ -29,7 +43,7 @@ const TutorialList = () => {
           </tr>
         </thead>
         <tbody>
-          {tutorials?.map((item) => {
+          {tutor?.map((item) => {
             const { id, title, description } = item;
             return (
               <tr key={id}>
@@ -40,12 +54,22 @@ const TutorialList = () => {
                   <FaEdit
                     size={20}
                     type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit-modal"
                     className="me-2 text-warning"
+                    onClick={() =>
+                      editTutorial({
+                        id: "1581",
+                        title: "UPDATE",
+                        description: "UPDATE",
+                      })
+                    }
                   />
                   <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
+                    onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>
@@ -53,6 +77,8 @@ const TutorialList = () => {
           })}
         </tbody>
       </table>
+
+      <EditTutorial />
     </div>
   );
 };

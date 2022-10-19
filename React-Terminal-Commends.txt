@@ -65,6 +65,14 @@ index.html'de head tagı içerisine;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
+
+REACT-ICONS İÇİN;
+yarn add react-icons
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
+Fa / Aİ gibi başında hangi kütüphaneye ait olduğunun kodu var, import ederken sonuna onu ekliyoruz.
+
+
 NETLIFY DEPLOY İŞLEMİ İÇİN;
 1- Manual Deploy:
 yarn run build komutu çalışınca klasör altında build klasörü oluşuyor.
