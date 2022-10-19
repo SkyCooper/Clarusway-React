@@ -23,10 +23,12 @@ const TutorialList = ({ tutor, getTutorials }) => {
   //! PUT (CRUD-Update)
   //! PUT: Whole Update, PATCH: Partially Update
   const editTutorial = async ({ id, title, description }) => {
+    // hangi tutorial değişecek--> id, başlık ne olacak-->title, açıklama ne olacak--> description
     // const { id, title, description } = item;
     const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
     try {
       await axios.put(`${url}/${id}`, { title, description });
+      // 2 parametre alıyor, url(id eklnemiş olarak) ve değişecek key/value objesi
     } catch (error) {
       console.log(error);
     }
@@ -60,6 +62,8 @@ const TutorialList = ({ tutor, getTutorials }) => {
                     type="button"
                     data-bs-toggle="modal"
                     data-bs-target="#edit-modal"
+                    //edit modal componentine bağlantı yaptı.
+                    // çalışması için index.html bootstrap scrip t eklemek gerekli
                     className="me-2 text-warning"
                     onClick={() =>
                       editTutorial({
