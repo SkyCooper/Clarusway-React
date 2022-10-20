@@ -13,8 +13,8 @@ const AddTask = ({ getTask }) => {
     console.log(newTask, "task geldi...");
     console.log(task, date);
     addNewTask(newTask);
-    setTask(" ")
-    setDate("")
+    setTask(" ");
+    setDate("");
   };
 
   const url = "https://6351820e3e9fa1244e6084b7.mockapi.io/api/tasks";
@@ -25,9 +25,8 @@ const AddTask = ({ getTask }) => {
     } catch (error) {
       console.log(error);
     }
-    getTask()
+    getTask();
   };
-
 
   return (
     <div>
@@ -44,7 +43,11 @@ const AddTask = ({ getTask }) => {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Date</Form.Label>
-          <Form.Control value={date} type="date" onChange={(e) => setDate(e.target.value)} />
+          <Form.Control
+            value={date}
+            type="date"
+            onChange={(e) => setDate(e.target.value)}
+          />
         </Form.Group>
 
         <Button variant="warning w-100" type="submit">
