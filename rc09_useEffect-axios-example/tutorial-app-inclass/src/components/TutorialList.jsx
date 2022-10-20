@@ -22,18 +22,18 @@ const TutorialList = ({ tutor, getTutorials }) => {
 
   //! PUT (CRUD-Update)
   //! PUT: Whole Update, PATCH: Partially Update
-  const editTutorial = async ({ id, title, description }) => {
-    // hangi tutorial değişecek--> id, başlık ne olacak-->title, açıklama ne olacak--> description
-    // const { id, title, description } = item;
-    const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
-    try {
-      await axios.put(`${url}/${id}`, { title, description });
-      // 2 parametre alıyor, url(id eklnemiş olarak) ve değişecek key/value objesi
-    } catch (error) {
-      console.log(error);
-    }
-    getTutorials();
-  };
+  // const editTutorial = async ({ id, title, description }) => {
+  //   // hangi tutorial değişecek--> id, başlık ne olacak-->title, açıklama ne olacak--> description
+  //   // const { id, title, description } = item;
+  //   const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
+  //   try {
+  //     await axios.put(`${url}/${id}`, { title, description });
+  //     // 2 parametre alıyor, url(id eklnemiş olarak) ve değişecek key/value objesi
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  //   getTutorials();
+  // };
 
   return (
     <div className="container mt-4">
@@ -65,13 +65,7 @@ const TutorialList = ({ tutor, getTutorials }) => {
                     //edit modal componentine bağlantı yaptı.
                     // çalışması için index.html bootstrap scrip t eklemek gerekli
                     className="me-2 text-warning"
-                    onClick={() =>
-                      editTutorial({
-                        id: "1581",
-                        title: "UPDATE",
-                        description: "UPDATE",
-                      })
-                    }
+                    // onClick={() => editTutorial()}
                   />
                   <AiFillDelete
                     size={22}
@@ -87,7 +81,11 @@ const TutorialList = ({ tutor, getTutorials }) => {
         </tbody>
       </table>
 
-      <EditTutorial />
+      <EditTutorial
+        tutor={tutor}
+        getTutorials={getTutorials}
+        // editTutorial={editTutorial}
+      />
     </div>
   );
 };
