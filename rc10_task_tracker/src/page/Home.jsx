@@ -5,15 +5,15 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [text, setText] = useState("Show Task Bar");
-  const [color, setColor] = useState("red")
+  const [isOpen, setIsOpen] = useState(true);
+  const [text, setText] = useState("Hide Task Bar");
+  const [color, setColor] = useState("green");
   const handleClick = () => {
     setIsOpen(!isOpen);
     const buttonText = isOpen ? "Show Task Bar" : "Hide Task Bar";
     const buttonColor = isOpen ? "red" : "green";
     setText(buttonText);
-    setColor(buttonColor)
+    setColor(buttonColor);
   };
 
   const url = "https://6351820e3e9fa1244e6084b7.mockapi.io/api/tasks";
@@ -33,14 +33,17 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      
-      <Button style={{backgroundColor : `${color}`, border : "none"}} onClick={handleClick} variant="danger">
+    <div className="mt-4 d-flex justify-content-center flex-column">
+      <Button
+        style={{ backgroundColor: `${color}`, border: "none" }}
+        onClick={handleClick}
+        variant="danger"
+      >
         {text}
       </Button>
 
-      {isOpen && <TaskList />}
-      <AddTask task = {task}/>
+      {isOpen && <AddTask getTask={getTask} />}
+      <TaskList task={task} getTask={getTask} />
     </div>
   );
 };

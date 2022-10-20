@@ -22,11 +22,15 @@ body {
   padding: 10px;
   border: 10px solid#ECAB9E;
   border-radius: 20px;
-  background-color: gray;
+  background-color: rgb(186, 188, 111);
 }
 
 .header {
   display: inline-flex;
   font-size: 2rem;
   padding: 1rem;
+}
+
+.task-list{
+  background-color:burlywood ;
 }
