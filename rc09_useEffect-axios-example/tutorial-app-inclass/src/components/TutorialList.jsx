@@ -2,8 +2,11 @@ import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 import EditTutorial from "./EditTutorial";
+import { useState } from "react";
 
 const TutorialList = ({ tutor, getTutorials }) => {
+  const [edititem, setEdititem] = useState([]);
+
   //! DELETE (CRUD-Delete)
   const deleteTutorial = async (id) => {
     const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
@@ -22,18 +25,18 @@ const TutorialList = ({ tutor, getTutorials }) => {
 
   //! PUT (CRUD-Update)
   //! PUT: Whole Update, PATCH: Partially Update
-  // const editTutorial = async ({ id, title, description }) => {
-  //   // hangi tutorial değişecek--> id, başlık ne olacak-->title, açıklama ne olacak--> description
-  //   // const { id, title, description } = item;
-  //   const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
-  //   try {
-  //     await axios.put(`${url}/${id}`, { title, description });
-  //     // 2 parametre alıyor, url(id eklnemiş olarak) ve değişecek key/value objesi
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  //   getTutorials();
-  // };
+  const editTutorial = async ( id, title, description ) => {
+    // hangi tutorial değişecek--> id, başlık ne olacak-->title, açıklama ne olacak--> description
+    // const { id, title, description } = item;
+    const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
+    try {
+      await axios.put(`${url}/${id}`, { title, description });
+      // 2 parametre alıyor, url(id eklnemiş olarak) ve değişecek key/value objesi
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
 
   return (
     <div className="container mt-4">
@@ -62,10 +65,10 @@ const TutorialList = ({ tutor, getTutorials }) => {
                     type="button"
                     data-bs-toggle="modal"
                     data-bs-target="#edit-modal"
-                    //edit modal componentine bağlantı yaptı.
-                    // çalışması için index.html bootstrap scrip t eklemek gerekli
+                    // edit modal componentine bağlantı yaptı.
+                    // çalışması için index.html bootstrap script eklemek gerekli
                     className="me-2 text-warning"
-                    // onClick={() => editTutorial()}
+                    onClick={() => setEdititem(item)}
                   />
                   <AiFillDelete
                     size={22}
@@ -81,11 +84,7 @@ const TutorialList = ({ tutor, getTutorials }) => {
         </tbody>
       </table>
 
-      <EditTutorial
-        tutor={tutor}
-        getTutorials={getTutorials}
-        // editTutorial={editTutorial}
-      />
+      <EditTutorial edititem={edititem} editTutorial={editTutorial} />
     </div>
   );
 };

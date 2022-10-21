@@ -1,8 +1,15 @@
+import { useEffect, useState } from "react";
 
+const EditTutorial = ({ edititem, editTutorial }) => {
+  const { id, title, description } = edititem;
+  const [newtitle, setNewtitle] = useState(title);
+  const [newdescription, setNewdescription] = useState(description);
 
+  useEffect(() => {
+    setNewtitle(title);
+    setNewdescription(description);
+  }, [title, description]);
 
-const EditTutorial = ({ tutor, getTutorials }) => {
-  console.log(tutor);
   return (
     <div>
       <div className="modal fade" id="edit-modal" tabIndex={-1}>
@@ -12,20 +19,22 @@ const EditTutorial = ({ tutor, getTutorials }) => {
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Edit Tutorial
               </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              />
             </div>
 
             <div className="modal-body">
               <p>Title</p>
-              <input type="text" value={tutor[4]?.title} />
+              <input
+                type="text"
+                value={newtitle}
+                onChange={(e) => setNewtitle(e.target.value)}
+              />
               <br />
               <p>Description</p>
-              <input type="text" value={tutor[3]?.description}/>
+              <input
+                type="text"
+                value={newdescription}
+                onChange={(e) => setNewdescription(e.target.value)}
+              />
             </div>
             <div className="modal-footer">
               <button
@@ -35,7 +44,12 @@ const EditTutorial = ({ tutor, getTutorials }) => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-success">
+              <button
+                type="button"
+                className="btn btn-success"
+                data-bs-dismiss="modal"
+                onClick={() => editTutorial(id, newtitle, newdescription)}
+              >
                 Save Changes
               </button>
             </div>
