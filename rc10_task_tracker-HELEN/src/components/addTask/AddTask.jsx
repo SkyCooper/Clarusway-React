@@ -50,8 +50,8 @@ const AddTask = ({ getTask }) => {
           />
         </Form.Group>
 
-        <Button variant="warning w-100" type="submit">
-          SAVE
+        <Button variant="success w-100 fs-4" type="submit">
+          Save Task
         </Button>
       </Form>
     </div>

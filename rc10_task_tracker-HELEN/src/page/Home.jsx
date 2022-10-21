@@ -24,7 +24,7 @@ const Home = () => {
       setTask(data);
       console.log(data);
     } catch (error) {
-      console.log(error);
+      console.log("API failed");
     }
   };
 
@@ -37,13 +37,13 @@ const Home = () => {
       <Button
         style={{ backgroundColor: `${color}`, border: "none" }}
         onClick={handleClick}
-        variant="danger"
+        variant="danger fs-4"
       >
         {text}
       </Button>
 
       {isOpen && <AddTask getTask={getTask} />}
-      <TaskList task={task} getTask={getTask} />
+      {isOpen && <TaskList task={task} getTask={getTask} />}
     </div>
   );
 };
