@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// custom-hook'tur, yani içinde başka hook'lar var.
-// dinamik route oluşturmayı sağlıyor. bir 
+// UseNavigate custom-hook'tur, yani içinde başka hook'lar vardır.
+// dinamik route oluşturmayı sağlıyor ve bir fonksiyon üretiyor.
+// bu fonksiyon best-practise olarak navigate değişkenine atanıyor.
 
 const People = () => {
   const [people, setPeople] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const getPeople = () => {
     fetch("https://reqres.in/api/users")
@@ -28,7 +29,10 @@ const People = () => {
               key={id}
               className=" col-sm-12 col-md-6 col-lg-4"
               type="button"
-              onClick={()=> navigate(`/people/${id}`)}
+              // onClick={() => navigate(`/people/${id}`, { state: person })}
+              // state keyi ile göndermek gerekli başlka isim kabul etmiyor.
+              onClick={() => navigate(`/people/${id}`)}
+              // 2nci yöntem yani açılan sayffada id'ye göre yeniden fetch yapma
             >
               <img className="rounded-circle" src={avatar} alt="img" />
               <h6>
