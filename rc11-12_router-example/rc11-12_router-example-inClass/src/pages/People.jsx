@@ -29,10 +29,15 @@ const People = () => {
               key={id}
               className=" col-sm-12 col-md-6 col-lg-4"
               type="button"
+              //?1nci yöntem
               // onClick={() => navigate(`/people/${id}`, { state: person })}
-              // state keyi ile göndermek gerekli başlka isim kabul etmiyor.
+              //? açılan sayfada önceden fetch yapılan veri içinden id ye göre filitreleme yapma
+              //? state keyi ile fetch edilen veri obje olarak gönderilir, başka isim kabul etmiyor, state olmak zorunda
+
+              //! 2nci yöntem
               onClick={() => navigate(`/people/${id}`)}
-              // 2nci yöntem yani açılan sayffada id'ye göre yeniden fetch yapma
+              //! yani açılan sayfada id'ye göre yeniden fetch yapma
+              //! state ile var olan person objesini yollamaya gerek yok.
             >
               <img className="rounded-circle" src={avatar} alt="img" />
               <h6>

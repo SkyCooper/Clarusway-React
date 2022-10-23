@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/people" element={<People />} />
         <Route path="/people/:id" element={<PersonDetail />} />
-        {/* : dan sonra gelen bir parametre/değişkendir, (dinamik bir değerdir yani) PersonDetaile aktarılır. */}
+        {/* : dan sonra gelen 'id' bir parametre/değişkendir, (dinamik bir değerdir yani) PersonDetaile aktarılır. */}
         <Route path="/paths" element={<Paths />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
