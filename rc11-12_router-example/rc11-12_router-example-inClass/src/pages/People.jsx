@@ -36,6 +36,11 @@ const People = () => {
 
               //! 2nci yöntem
               onClick={() => navigate(`/people/${id}`)}
+              //* ablolute path, url'nin hepsi yazılıyor.
+
+              // onClick={() => navigate(`${id}`)}
+              //* relative path, yani var olan adres sonuna ekleme yapıyor.
+
               //! yani açılan sayfada id'ye göre yeniden fetch yapma
               //! state ile var olan person objesini yollamaya gerek yok.
             >
