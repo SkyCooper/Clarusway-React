@@ -31,22 +31,27 @@ const PersonDetail = () => {
 
   const [person, setPerson] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true)
 
   const navigate = useNavigate();
   const { id } = useParams();
 
   //! api adresini backtick içinde id değişkeni ile yeniden düzenle
   const getPerson = () => {
-    fetch(`https://reqres.in/api/users/${id}`)
-      .then((res) => {
-        if (!res.ok) {
-          setError(true);
-          throw new Error("Something went wrong");
-        }
-        return res.json();
-      })
-      .then((data) => setPerson(data.data))
-      .catch((err) => console.log(err));
+        fetch(`https://reqres.in/api/users/${id}`)
+          .then((res) => {
+            if (!res.ok) {
+              setError(true);
+              setLoading(false);
+              throw new Error("Something went wrong");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            setLoading(false);
+            setPerson(data.data);
+          })
+          .catch((err) => console.log(err));
   };
 
   //! useEffect hook import et
@@ -66,32 +71,38 @@ const PersonDetail = () => {
 
   if (error) {
     return <NotFound />;
-  } else {
+  }
+
+  if (loading) {
     return (
-      <div className="container text-center">
-        <h3>
-          {person?.first_name} {person?.last_name} ( ID : {person?.id} )
-        </h3>
-        <img src={person?.avatar} alt="" />
-        <p>{person?.email}</p>
-        <div>
-          <button
-            onClick={() => navigate("/")}
-            className="btn btn-success me-2"
-          >
-            Go Home
-          </button>
-          <button onClick={() => navigate(-1)} className="btn btn-warning">
-            {/* (-1) ile bir histordeki önceki sayfaya gelir, (-2) ile 2 önceki sayfaya gider, (1) ileri gider, ama (2) olmadığı için çalışmaz. */}
-            {/* konsoldan history.back(-1) veya history.forward() yazınca iler/geri gider. navigate aslında arka planda bunu kullanır.*/}
-            {/* <button onClick={() => navigate("/people")} className="btn btn-warning"> */}
-            {/* böylede direk önceki adres yazılabilir. */}
-            Go Back
-          </button>
-        </div>
+      <div className="text-center">
+        <h3>Data Loading</h3>
       </div>
     );
-  }
+  } 
+if (!error && !loading) {
+  return (
+    <div className="container text-center">
+      <h3>
+        {person?.first_name} {person?.last_name} ( ID : {person?.id} )
+      </h3>
+      <img src={person?.avatar} alt="" />
+      <p>{person?.email}</p>
+      <div>
+        <button onClick={() => navigate("/")} className="btn btn-success me-2">
+          Go Home
+        </button>
+        <button onClick={() => navigate(-1)} className="btn btn-warning">
+          {/* (-1) ile bir histordeki önceki sayfaya gelir, (-2) ile 2 önceki sayfaya gider, (1) ileri gider, ama (2) olmadığı için çalışmaz. */}
+          {/* konsoldan history.back(-1) veya history.forward() yazınca iler/geri gider. navigate aslında arka planda bunu kullanır.*/}
+          {/* <button onClick={() => navigate("/people")} className="btn btn-warning"> */}
+          {/* böylede direk önceki adres yazılabilir. */}
+          Go Back
+        </button>
+      </div>
+    </div>
+  );
+}
 };
 
 export default PersonDetail;
