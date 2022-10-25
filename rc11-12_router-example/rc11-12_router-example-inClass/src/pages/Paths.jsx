@@ -34,6 +34,7 @@ const Paths = () => {
         </button>
       </div>
       <Outlet />
+      {/* //todo, nested route oluşumunda açılacak olan yeni component için yer tutuyor */}
     </div>
   );
 };

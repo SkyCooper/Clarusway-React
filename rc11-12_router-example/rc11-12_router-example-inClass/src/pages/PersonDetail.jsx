@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import NotFound from "./NotFound";
+import spinner from "../img/loading.gif"
 //? people dan dinamik oluşturulan link için verilen id parametresini kullanabilmek için useParam hook import ediliyor.
 
 //? obje olarak gönderilen person verisini karşılamak için useLocation hook import edilir.
@@ -76,7 +77,8 @@ const PersonDetail = () => {
   if (loading) {
     return (
       <div className="text-center">
-        <h3>Data Loading</h3>
+        <h3>Data Loading...</h3>
+        <img src="../img/loading.gif" alt="" />
       </div>
     );
   } 

@@ -20,6 +20,7 @@ const Contact = () => {
 
   return (
     <div className="container">
+      <p className="text-danger">Eğer Private Roter TRUE ise (orada user isimli değişken tanımlandı ve giriş yapıldı/yapılmadı durumu simule edildi.) yani güvenlik sağlanımış/giriş yapılmış vs. ise direk bu sayfa açılır, eğer güvenlikli değil/giriş yapılmamış ise önce LOgin sayfasına yönlendirip giriş yapılması sağlanır. (BU ÖRNEK İÇİN BÖYLE KURGULANDI.) </p>
       <h1 className="text-center mt-4">CONTACT FORM</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="mb-3">
