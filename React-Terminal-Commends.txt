@@ -8,8 +8,9 @@ npm install --save react react-dom
 
 
 SIFIRDAN PROJE OLUŞTURMAK İÇİN;
-yarn create react-app my-app --> var olan dizine my-app isimli proje oluşturur.
+yarn create react-app my-app -->   var olan dizine my-app isimli proje oluşturur.
 veya npx create-react-app my-app
+
 yarn create react-app . var olan dizin içine yeni klasör eklemeden proje oluşturur.
 yarn start
 
@@ -26,6 +27,7 @@ npm i -g yarn
 
 
 SASS / SCSS İÇİN;
+(rc03 klasörü içinde notları)
 yard add sass
 import "./scss/App.scss";  -> scss dosyası nerde ise
 @import "./reset", "./variables"; --> parçalı scss dosyasını import etmek için
@@ -66,6 +68,7 @@ index.html'de head tagı içerisine;
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
 STYLED-COMPONENTS İÇİN;
 (rc13 klasörü içinde notları)
 yarn add styled-components
@@ -92,6 +95,7 @@ Componenet gibi import edlir. size ={} probu ile boyutu ayarlanabilir.
 
 
 AXIOS İÇİN;
+(rc09 klasörü içinde notları)
 yarn add axios
 import axios from "axios"; --> kullanmadan önce import et
 
@@ -108,6 +112,7 @@ c- Githupdan proje seçilir ve Deploy edilir.
 
 
 REACT ROUTER;
+(rc11-12 klasörü içinde notları)
 react bir library(yani kütüphane), framework değil,
 bundan dolayı içerisinde herşey hazır olarak bulunmuyor,
 serbest olarak isteyen istediğini yükleyip/ekleyip kullanabiliyor.
