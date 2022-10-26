@@ -66,6 +66,20 @@ index.html'de head tagı içerisine;
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+STYLED-COMPONENTS İÇİN;
+(rc13 klasörü içinde notları)
+yarn add styled-components
+import styled from "styled-components"
+
+//*escb kısayolu ile buton oluşturuldu,
+const Button = styled.button `
+backticler arasına kebap-case ile stil verildi
+`
+import Button from "./styles/Button.styled"; böyle import edildi.
+
+veya global stil oluşturmak için;
+import { createGlobalStyle } from "styled-components";
+export const GlobalStyles = createGlobalStyle
 
 
 REACT-ICONS İÇİN;
