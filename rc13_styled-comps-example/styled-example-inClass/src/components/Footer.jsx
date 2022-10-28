@@ -1,6 +1,5 @@
 import React from "react";
 import Icons from "./Icons";
-import Container from "./styles/Container.styled";
 import Flex from "./styles/Flex.styled";
 import StyledFooter from "./styles/Footer.styled";
 import { Logo } from "./styles/Header.styled";
