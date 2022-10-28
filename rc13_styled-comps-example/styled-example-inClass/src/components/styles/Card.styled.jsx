@@ -13,5 +13,6 @@ const StyledCard = styled.div`
 
   @media (max-width: ${({ theme }) => theme.responsives.breakpoint}) {
     flex-direction: column;
+  }
 `;
 export default StyledCard;
