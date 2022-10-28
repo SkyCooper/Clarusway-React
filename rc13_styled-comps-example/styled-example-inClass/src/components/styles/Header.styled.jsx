@@ -20,12 +20,15 @@ export const Nav = styled.nav`
 `;
 
 export const Image = styled(Logo)`
+  width: 380px;
+  border-radius: 60px;
   @media (max-width: ${({ theme }) => theme.responsives.breakpoint}) {
-    margin:2rem 0;
+    margin: 2rem 0;
   }
 `;
 
 
 
-//* default olan export en altta olması gerekli ve sadece 1 tane olur bir sayfada
 export default StyledHeader;
+
+//* default olan export en altta olması gerekli ve sadece 1 tane olur bir sayfada

@@ -1,9 +1,12 @@
 import Button from "./styles/Button.styled";
+import Container from "./styles/Container.styled";
 import Flex from "./styles/Flex.styled";
 import StyledHeader, { Logo, Nav, Image } from "./styles/Header.styled";
 
 const Header = () => {
   return (
+    <Container>
+
     <StyledHeader>
       <Nav>
         <Logo src="./images/logo.png" />
@@ -26,6 +29,7 @@ const Header = () => {
         <Image src="./images/hero.jpg"/>
       </Flex>
     </StyledHeader>
+    </Container>
   );
 };
 

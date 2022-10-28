@@ -14,7 +14,7 @@ const content = [
   {
     id: 3,
     title: "Meet Our Alumni",
-    body: "e’ve upskilled over 3,000 students and graduates from around the world. They’re successfully working in the IT industry and part of our alumni network. Meet our alumni online and hear their success stories. Learn how you can become a member of the Clarusway family and get the career you’ve always dreamed of – it’s your turn to shine!",
+    body: "We’ve upskilled over 3,000 students and graduates from around the world. They’re successfully working in the IT industry and part of our alumni network. Meet our alumni online and hear their success stories. Learn how you can become a member of the Clarusway family and get the career you’ve always dreamed of – it’s your turn to shine!",
     image: "meet.jpg",
   },
 ];
