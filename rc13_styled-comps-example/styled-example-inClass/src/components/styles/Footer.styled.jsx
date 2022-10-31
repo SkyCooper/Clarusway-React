@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-//*escd kısayolu
-
+//*escf kısayolu
 const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.footer};
   color: #fff;
@@ -30,6 +29,7 @@ const StyledFooter = styled.footer`
   }
 `;
 
+//*escd kısayolu
 export const StyledIcons = styled.div`
   display: flex;
   align-items: center;

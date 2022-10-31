@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+
+//*escd kısayolu
 const Flex = styled.div`
   display: flex;
   align-items: center;

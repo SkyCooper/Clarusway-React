@@ -5,7 +5,7 @@ import EditTutorial from "./EditTutorial";
 import { useState } from "react";
 
 const TutorialList = ({ tutor, getTutorials }) => {
-  const [edititem, setEdititem] = useState("");
+  const [editItem, setEditItem] = useState("");
 
   //! DELETE (CRUD-Delete)
   const deleteTutorial = async (id) => {
@@ -23,20 +23,6 @@ const TutorialList = ({ tutor, getTutorials }) => {
     //! <TutorialList tutor={tutorials} getTutorials={getTutorials} />
   };
 
-  //! PUT (CRUD-Update)
-  //! PUT: Whole Update, PATCH: Partially Update
-  // const editTutorial = async ( id, title, description ) => {
-  //   // hangi tutorial değişecek--> id, başlık ne olacak-->title, açıklama ne olacak--> description
-  //   // const { id, title, description } = item;
-  //   const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
-  //   try {
-  //     await axios.put(`${url}/${id}`, { title, description });
-  //     // 2 parametre alıyor, url(id eklnemiş olarak) ve değişecek key/value objesi
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  //   getTutorials();
-  // };
 
   return (
     <div className="container mt-4">
@@ -68,7 +54,7 @@ const TutorialList = ({ tutor, getTutorials }) => {
                     // edit modal componentine bağlantı yaptı.
                     // çalışması için index.html bootstrap script eklemek gerekli
                     className="me-2 text-warning"
-                    onClick={() => setEdititem(item)}
+                    onClick={() => setEditItem(item)}
                   />
                   <AiFillDelete
                     size={22}
@@ -84,7 +70,7 @@ const TutorialList = ({ tutor, getTutorials }) => {
         </tbody>
       </table>
 
-      <EditTutorial edititem={edititem} getTutorials={getTutorials} />
+      <EditTutorial editItem={editItem} getTutorials={getTutorials} />
     </div>
   );
 };
