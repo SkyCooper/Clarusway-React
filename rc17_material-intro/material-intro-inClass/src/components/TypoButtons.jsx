@@ -13,17 +13,17 @@ const TypoButtons = () => {
     <>
       <Container>
         <Typography
-          variant="h1"
-          component="h6"
+          variant="h4"
+          component="h1"
           align="center"
           mt={4}
           color="error"
         >
-          Cooper SKY
+          MUI Typography
         </Typography>
-        {/* kendisi aslında h6 ama h1 görüntüsünde demek */}
+        {/* kendisi aslında h1 ama h4 görüntüsünde demek */}
         <Typography
-          variant="body"
+          variant="body2"
           align="justify"
           mt={4}
           sx={{ backgroundColor: "hotpink", color: "#eee", fontSize: "1.4rem" }}
@@ -32,7 +32,7 @@ const TypoButtons = () => {
           praesentium possimus facilis, suscipit id laudantium quos modi cumque
           et quis dicta, eius doloribus assumenda temporibus!
         </Typography>
-        <Typography>
+        <Typography mt={4}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
           praesentium possimus facilis, suscipit id laudantium quos modi cumque
           et quis dicta, eius doloribus assumenda temporibus!
