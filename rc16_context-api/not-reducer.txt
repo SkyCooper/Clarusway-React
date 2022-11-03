@@ -1,0 +1,25 @@
+useStateExample ve useReducerExample birbirinin aynısı sadece sytax farklı, 
+
+useStateExample de;
+
+	const [catImage, setCatImage] = useState("");
+  	const [error, setError] = useState("");
+  	const [loading, setLoading] = useState(false);
+3 tane state tanımlanış,
+
+
+
+useReducerExample de;
+tanımlanmış local stateleri azaltmak için kullanılıyor.
+src altında reducer.js isimli bir dosya oluşturdu. (jsx te olabilir.)
+fakat reducer bir component değil pure js dosyası.
+reducer;
+1- statelerin başlangıç değerlerini alıyor değişken olarak. obje formatında;
+	export const initialState = {
+ 	  loading : false,
+  	  catImage : "",
+  	   error : "",
+	};
+
+2- reducer fonksiyonu yazılıyor, (state ve action ) alıyor içine,
+switch/case yapısında; action olduğunda yani çalışmaya başaldğında hangi durumlar olablilir bunları case ile seçip, bu durumlarda ne olacak onları yazıyoruz.
