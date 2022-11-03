@@ -1,0 +1,14 @@
+example1 ve 2 birbirinin aynısı sadec sytax farklı, 
+1 de,
+önce contex create edildi
+sonra app import edip orada provide edildi
+ve global state app de tanımlanıp provide edilerek componenntler sarmalandı
+en son istenilen yerde consume edildi, useContex ile
+
+2de 
+herşey tek dostya içinden yapıldı, 
+önce create edildi,
+global state de burada tanımlandı
+sonra children probu ile app de sarmalana heryere yollandı,
+custom hook yazılarak (bizim yazdığımız bir hook react-hook'unu çağırıyorsa buna custom-hook denir.)
+importlar azaltıldı.

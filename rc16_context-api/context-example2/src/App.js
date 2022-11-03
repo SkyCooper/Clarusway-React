@@ -6,21 +6,21 @@ import People from "./pages/People";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PersonDetail from "./pages/PersonDetail";
 import Login from "./pages/Login";
-import { LoginContext } from "./context/LoginContext";
-import { useState } from "react";
+// import { LoginContext } from "./context/LoginContext";
+// import { useState } from "react";
 import PrivateRouter from "./pages/PrivateRouter";
+import LoginProvider from "./context/LoginProvider";
 //? import etmeyi unutma!!!
 
 function App() {
-  const [user, setUser] = useState("");
+  // const [user, setUser] = useState("");
+  // artık buna gerek yok, loginProviderden alacak
   return (
-    //! 2-PROVİDNG
-    //? kullanacağımız alanda ilgili yeri contex provider ile sarmalamak gerekiyor.
-    //? bütün uygulamayı sarmaya aslında gerek yok, nerde lazımsa orayı sarmak yeterli.
-    //? bu örnek için login verisini global state aktarmak gerekli;
-    //! user bilgisini artık herkes kullanabilir.
+    //! artık ilave state tanımlamaya veya value ile onu provide etmeye gerek yok,
+    //! hepsi LoginProvider içinden yapıldı. 
 
-    <LoginContext.Provider value={{ user, setUser }}>
+    // <LoginContext.Provider value={{ user, setUser }}>
+    <LoginProvider>
       <BrowserRouter>
         <Navs />
         <Routes>
@@ -37,7 +37,8 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </LoginContext.Provider>
+    </LoginProvider>
+    // </LoginContext.Provider>
   );
 }
 

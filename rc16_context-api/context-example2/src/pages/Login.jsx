@@ -1,19 +1,16 @@
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useContext } from "react";
-import { LoginContext } from "../context/LoginContext";
 import { useNavigate } from "react-router-dom";
+// import { useContext } from "react";
+// import { LoginContext } from "../context/LoginContext";
+import { useLoginContext } from "../context/LoginProvider";
 
 const Login = () => {
   const navigate = useNavigate();
-  //! buradaki user verisi local state, bunu globala almak istiyoruz.
-  //! o zaman contex kullanılan yerde tanımlama yapmak gerekiyor, ve ilave prop yollamadan buradan direk kullanılabilir.
-  // const [user, setUser] = useState({ email: "", password: "" });
-
-  //! 3-CONSUMING
-  //? artık local state gerek yok, useContex hook ile Logincontexten consume edilebilir.
-  const { user, setUser } = useContext(LoginContext);
+  // const { user, setUser } = useContext(LoginContext);
+  //! gerek kalmadı, tek yerden import yeterli olur.
+  const { user, setUser } = useLoginContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();

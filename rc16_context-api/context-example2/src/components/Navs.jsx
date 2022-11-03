@@ -3,12 +3,14 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
-import { useContext } from "react";
-import { LoginContext } from "../context/LoginContext";
+// import { useContext } from "react";
+// import { LoginContext } from "../context/LoginContext";
+import { useLoginContext } from "../context/LoginProvider";
 
 function Navs() {
   //! consuming
-  const { user, setUser } = useContext(LoginContext);
+  // const { user, setUser } = useContext(LoginContext);
+  const { user, setUser } = useLoginContext()
   //? burada login olduysa navbarda ki yazı logout dönüşüyor, onu kontrol etmek için,
   //? contexten user versini çekiyoruz. ve conditional rendiring yapıyoruz.
   //! ayrıca logout olduğunda user verisini silmek/sıfırlamak için setUser da lazım.
