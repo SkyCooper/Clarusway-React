@@ -126,7 +126,9 @@ REACT FORMİK İÇİN;(patika.dev)
 yarn add formik
 import { Formik, Field, Form } from "formik";
 
+
 MATERIAL UI İÇİN ;
+(rc19 klasörü içinde notları)
 1 - 3'lü paketi kur;
 yarn add @mui/material @emotion/react @emotion/styled  
 
@@ -146,6 +148,9 @@ bütün kütüphaneyi indir, içinden al Typography kullan demek ama kullanışl
 import Typography from "@mui/material/Typography";
 kütüphaneden sadece Typography al demek, daha hızlı çalışır.
 
+** önceden sx yerine kullanılan makeStyle eklemek için,
+yarn add @mui/styles
+(rc-19 klasöründe örnek bir component var, artık kullanılmıyor, fakat eski projlerde karşılaşılabilir.)
 
 
 

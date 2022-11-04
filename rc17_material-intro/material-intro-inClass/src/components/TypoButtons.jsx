@@ -58,7 +58,7 @@ const TypoButtons = () => {
             alignItems: "center",
           }}
         >
-          <Button variant="text">Text</Button>
+          <Button variant="text" color="primary">Text</Button>
           <Button variant="contained">Contained</Button>
           <Button variant="outlined">Outlined</Button>
           <Button variant="outlined" color="error" startIcon={<DeleteIcon />}>
