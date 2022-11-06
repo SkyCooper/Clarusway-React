@@ -1,10 +1,16 @@
 REACT KOMUTLARI:
+yarn home page : https://yarnpkg.com/
+npm  home page : https://www.npmjs.com/
+
 npm veya yarn kullanımı;
-nmp i / install
-yarn add
+bir ekleme yapılmak istendiğinde;
+nmp için --> npm i / install
+yarn için --> yarn add 
+
 
 REACT KURMAK İÇİN;
 npm install --save react react-dom
+yarn add --save react-dom
 
 
 SIFIRDAN PROJE OLUŞTURMAK İÇİN;
@@ -90,7 +96,7 @@ yarn add react-icons
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 Fa / Aİ gibi başında hangi kütüphaneye ait olduğunun kodu var, import ederken sonuna onu ekliyoruz.
-Componenet gibi import edlir. size ={} probu ile boyutu ayarlanabilir.
+Componenet gibi import edilir. size ={} probu ile boyutu ayarlanabilir.
 
 
 
@@ -128,7 +134,7 @@ import { Formik, Field, Form } from "formik";
 
 
 MATERIAL UI İÇİN ;
-(rc19 klasörü içinde notları)
+(rc17 klasörü içinde notları)
 1 - 3'lü paketi kur;
 yarn add @mui/material @emotion/react @emotion/styled  
 
@@ -150,7 +156,9 @@ kütüphaneden sadece Typography al demek, daha hızlı çalışır.
 
 ** önceden sx yerine kullanılan makeStyle eklemek için,
 yarn add @mui/styles
-(rc-19 klasöründe örnek bir component var, artık kullanılmıyor, fakat eski projlerde karşılaşılabilir.)
+(rc-17 klasöründe örnek bir component var (MakeStylesComp.jsx), artık kullanılmıyor, fakat eski projlerde karşılaşılabilir.)
 
 
+FIREBASE İÇİN ;
+yarn add firebase
 
