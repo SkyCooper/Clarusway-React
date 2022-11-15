@@ -1,6 +1,8 @@
 import React,{useEffect, useRef, useState} from 'react'
 
 const UseRefComp = () => {
+    //! useNavigate hook olduğu gibi bir değişkene atayıp kullanıyoruz..
+    // ? DOM elementlerine ulaşmamızı sağlıyor.
     const divRef = useRef()
     const inputRef = useRef()
     const [headerText,setHeaderText] = useState("useRef")
@@ -37,7 +39,7 @@ export default UseRefComp
 
 // Bir değişken değiştiğinde useState component’in tekrar render olmasını tetikler useRef component’in tekrar render olmasını tetiklemez.
 
-// useRef hook’u ile;
+//* useRef hook’u ile;
 
 // DOM node’larına veya React elementlerine erişebiliriz.
 // Mutable değişkenler tutabiliriz.

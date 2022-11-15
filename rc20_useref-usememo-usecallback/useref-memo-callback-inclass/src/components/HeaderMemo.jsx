@@ -1,10 +1,14 @@
-import React,{memo} from 'react'
+import React, { memo } from "react";
 
-const HeaderMemo = ({count}) => {
-  console.log("Render => HeaderMemo Components")
+//! react memo kullanmanın 2 yöntemi var,
+
+//! 2ncisi async yazdığımız gibi fonksiyon başına memo yazmak;
+const HeaderMemo = ({ count }) => {
+  console.log("Render => HeaderMemo Components");
   return (
-    <div className='bg-danger text-center'>HeaderMemo Componenti : {count}</div>
-  )
-}
+    <div className="bg-danger text-center">HeaderMemo Componenti : {count}</div>
+  );
+};
 
-export default memo(HeaderMemo)
+//! 1ncisi export edilen yerde fonksiyonu memo içine koymak --> memo(ClerarButton)
+export default memo(HeaderMemo);
