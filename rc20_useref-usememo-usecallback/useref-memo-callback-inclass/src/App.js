@@ -14,6 +14,7 @@ function App() {
   const [data, setData] = useState([]);
 
   //const taxData = {"tax":0.18,"ship":15}
+  //! taxData obje olduğu için içindekiler değişmese bile App.js her render olduğunda adresi değiştiğinden TaxComponenti de render oluyor.
   const taxData = useRef({ tax: 0.18, ship: 15 }); //hafizada değişmeyen mutable değişken tanımlamamızda yarıyor
 
   useEffect(() => {
