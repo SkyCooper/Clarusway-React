@@ -159,6 +159,30 @@ yarn add @mui/styles
 (rc-17 klasöründe örnek bir component var (MakeStylesComp.jsx), artık kullanılmıyor, fakat eski projlerde karşılaşılabilir.)
 
 
+TAILWIND İÇİN;
+1- yarn add -D tailwindcss postcss autoprefixer
+2- npx tailwindcss init -p
+
+3- tailwindconfig içeriğini değiştir;
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+4- indexcss içine import et;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+5- yarn start ile projeyi çalıştır.
+
 FIREBASE İÇİN ;
 yarn add firebase
 
