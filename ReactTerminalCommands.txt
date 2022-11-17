@@ -186,3 +186,6 @@ module.exports = {
 FIREBASE İÇİN ;
 yarn add firebase
 
+
+REDUX İÇİN;
+yarn add redux react-redux

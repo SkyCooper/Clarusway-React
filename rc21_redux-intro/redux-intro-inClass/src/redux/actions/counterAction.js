@@ -1,5 +1,12 @@
 import { CLEAR, DECREMENT, INCREMENT } from "../types/counterType";
 
+//? rxaction snipet kısayolu..
+// export const first = (payload) => ({
+//   type: second,
+//   payload
+// })
+
+
 export const increment = () => {
   return { type: INCREMENT };
 };

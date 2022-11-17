@@ -9,6 +9,8 @@ const initialState = {
   todoList: [{ id: new Date().getTime(), text: "Work hard", completed: true }],
 };
 
+//? rxreducer snipet
+
 const todoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_TODO:

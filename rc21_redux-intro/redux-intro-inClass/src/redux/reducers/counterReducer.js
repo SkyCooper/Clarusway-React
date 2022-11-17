@@ -4,6 +4,8 @@ const initialState = {
   counter: 0,
 };
 
+//? index içinden kopyladık ve string olan case'leri değişken olarak yazdık. tek fark bu..
+
 const counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT:
