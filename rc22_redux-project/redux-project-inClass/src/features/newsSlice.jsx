@@ -1,3 +1,22 @@
+//? rxslice snipeti
+// import { createSlice } from '@reduxjs/toolkit'
+
+// const initialState = {
+
+// }
+
+// const authSlice = createSlice({
+//   name: second,
+//   initialState,
+//   reducers: {}
+// });
+
+// export const {} = authSlice.actions
+
+// export default authSlice.reducer
+
+//? yukarısı default snipet yazılımı
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 

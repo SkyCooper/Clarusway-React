@@ -188,4 +188,10 @@ yarn add firebase
 
 
 REDUX İÇİN;
+-- hem redux hemde react-redux eklemek gerekli,
 yarn add redux react-redux
+--redux toolkit için;
+toolkit yüklemek için react-redux yüklemek gerekiyor,
+react-redux  yüklenmiş bir projeye toolkit eklemek için ; yarn add @reduxjs/toolkit
+veya sıfırdan eklemek için; yarn add react-redux @reduxjs/toolkit
+
