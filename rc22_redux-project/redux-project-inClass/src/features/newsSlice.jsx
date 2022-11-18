@@ -28,11 +28,12 @@ const initialState = {
 
 //? State'lerin API gibi async kaynaklardan gelen verilere gore guncellenmesi gerekebilir.
 //? Ancak boyle bir durumda async islem tamamlandiktan sonra state guncellenmelidir.
-//? Gonderilen api istegi ile dogrudan state guncellememelidir.
+//? Gonderilen API istegi ile dogrudan state guncellememelidir.
 //? Islemin tamamlanmasi ile gelen veriye gore state'in guncellenemsini saglamak
-//? adina bir arabirim kullanilmaktadir.
+//? adina bir arabirim (middleware) kullanilmaktadir.
 //? Bu arabirim middleware denilir.Redux-Toolkit, default olarak Thunk kullanmaktadir.
-//! Thunk'ın amaci reducers'a islenmis sonuclari gondermeden once gecikmeli asenkron ismlerinin yurutulmesini saglamaktir.
+//! Thunk'ın amaci reducers'a islenmis sonuclari gondermeden once
+//! gecikmeli asenkron işlemlerin yurutulmesini saglamaktir.
 
 export const getNews = createAsyncThunk(
   "getNews", //! action types
@@ -49,6 +50,7 @@ export const getNews = createAsyncThunk(
       //? initialState olarak boş tanımlanan newsList'e aktarılıyor.
     } catch (error) {
       console.log(error);
+      //? rejectWithValue probu, async isteğin hatalı olduğu durumu sisteme bildirir.
       return rejectWithValue("Something went wrong");
     }
   }
