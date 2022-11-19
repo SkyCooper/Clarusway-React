@@ -17,8 +17,12 @@ import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 const FormComponent = ({info,setInfo,handleSubmit,isAdd}) => {
   const handleChange=(e)=>{
     e.preventDefault();
+    //? aşağıdaki name , inputun name attributunun değeri..
+    //? böyle yazılmasının amacı database düzdün veri gitmesini sağlamak (key-value olarak)
+    //? username : cooper, phonenumber : 5333363 gibi
     // const name=e.target.name;
-    // const value=e.target.value; 
+    // const value=e.target.value;
+    //! aşağıdaki kullanım ikisinin birleştirilmiş hali,
     const {name,value}=e.target;
    setInfo({...info,[name]:value})
    console.log(info)

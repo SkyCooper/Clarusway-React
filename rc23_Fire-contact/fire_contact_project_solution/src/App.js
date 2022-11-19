@@ -10,6 +10,9 @@ const initialValues={
   phoneNumber:"",
   gender:""
 }
+
+//? 3 giriş alanı olduğu için initial value obje olarak tanımlandı, ve artık veri girişi yapıldıktan sonra formu temizlemek için initial değerlere set etmek yeterli olacak..
+
 function App() {
   const [info, setInfo] = useState(initialValues)
   const [isAdd,setIsAdd]=useState("ADD")
