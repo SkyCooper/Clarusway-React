@@ -15,15 +15,17 @@ import { AccountCircle } from "@mui/icons-material";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 
 const FormComponent = ({info,setInfo,handleSubmit,isAdd}) => {
+  //? tek bir handlechange ile dinamik bir yapı kurarak 3 inputa atama yapıldı.
   const handleChange=(e)=>{
     e.preventDefault();
     //? aşağıdaki name , inputun name attributunun değeri..
     //? böyle yazılmasının amacı database düzdün veri gitmesini sağlamak (key-value olarak)
-    //? username : cooper, phonenumber : 5333363 gibi
+    //? username : cooper --> gibi
     // const name=e.target.name;
     // const value=e.target.value;
     //! aşağıdaki kullanım ikisinin birleştirilmiş hali,
     const {name,value}=e.target;
+    //? spread ile açıp üzerine yazmasını engelliyor, ve key-value gibi yazıyor.
    setInfo({...info,[name]:value})
    console.log(info)
   }
@@ -51,6 +53,7 @@ const FormComponent = ({info,setInfo,handleSubmit,isAdd}) => {
 
       <Box style={{ backgroundColor: "white", padding: "20px" }}>
         <form onSubmit={handleSubmit}>
+          {/* burada atanan handlesubmit bütün heryerde lazım olduğundan App.js de tanımlanıyor */}
           <Stack spacing={3} direction="column">
             <TextField
               variant="outlined"

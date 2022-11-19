@@ -17,19 +17,25 @@ function App() {
   const [info, setInfo] = useState(initialValues)
   const [isAdd,setIsAdd]=useState("ADD")
   
+  //? form componentinin onSubmitine verilecek fakat dah üst seviyede tanımlanıyor.
   const handleSubmit=(e)=>{
     e.preventDefault();
+    //? kullanıcı varsa, id dolu ise update yap
     if(info.id){
       UpdateUser(info)
     }
+    //? kullanıcı yoksa, add yap
     else{
       AddUser(info)
     }
+    //? açılışta inputların içini boşaltmak için;
     setInfo(initialValues)
+    //? button ADD olsun
     setIsAdd("ADD")
   }
-
+  
   const editUser=(id,username,phoneNumber,gender)=>{
+    //? button UPDATE olsun
     setIsAdd("UPDATE")
     setInfo({id,username,phoneNumber,gender})
   }
