@@ -45,13 +45,17 @@ const Login = () => {
   //* custumHook içindeki login fonksiyonu çağırılıyor.
   const { login } = useAuthCall();
 
+  //? useEffect kullanılmazsa currentUser state değişimini algılamıyor, onun için kullandık.
   useEffect(() => {
     if (currentUser) {
       navigate("/stock");
       toastSuccessNotify("Login Performed");
     }
   }, [currentUser]);
+  //? currentUser değişiminde component render olsun,
 
+  //! useEffect leri ayrı kullanmak performans açısından daha sağlıklı,
+  //! hangisi değişirse ona göre işlem yapsın, ikisini birden yapmasın boş yere
   useEffect(() => {
     error && toastErrorNotify("Login can not e performed");
   }, [error]);
@@ -104,6 +108,7 @@ const Login = () => {
               login(values);
               //? logine valuler yollanıyor.
               navigate("/stock");
+              //? stcok sayfasına git
               actions.resetForm();
               //? formu temizle
               actions.setSubmitting(false);

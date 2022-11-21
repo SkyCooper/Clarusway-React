@@ -9,11 +9,13 @@ import Typography from "@mui/material/Typography";
 
 import { useSelector } from "react-redux";
 import useAuthCall from "../hooks/useAuthCall";
+//? logout kullanmak için customHook import edilmesi gerekiyor.
 import { toastErrorNotify } from "../helper/ToastNotify";
 import { useEffect } from "react";
 
 function Dashboard() {
   const { currentUser, error } = useSelector((state) => state.auth);
+  //? logout kullanmak için useAuthCall içinden çağırmak gerekiyor.
   const { logout } = useAuthCall();
 
   useEffect(() => {
