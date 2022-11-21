@@ -14,6 +14,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 //? loadinButton geliştirme aşamasında olduğu için mui içinde lab'dan import ediliyor.
 //? importtan önce de yarn add @mui/lab ile kurulması gerekiyor.
 import * as yup from "yup";
+//? yup formik ile çok uyumlu kullanılıyor fakat mui ve diğer kütüphanelerle birlikte de kullanılabilir.
 import useAuthCall from "../hooks/useAuthCall";
 import { useEffect } from "react";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
@@ -23,11 +24,14 @@ const loginSchema = yup.object().shape({
     .string()
     .email("Please enter valid email")
     .required("Please  enter an email"),
+  //! parantez içine birşey yazılmaz ise yup kendi default uyarısını verir.
   password: yup
     .string()
     .required("Please enter a password ")
+    //? handleblur fonksiyonu min-max olayını kontrol ediyor, ona göre hata mesajını çıkarıyor/kaldırıyor.
     .min(8, "Password must have min 8 chars")
     .max(16, "Password must have max 16 chars")
+    //? regex kullanmak için matches fonksiyonu kullanılıyor.
     .matches(/\d+/, "Password must have a number")
     .matches(/[a-z]+/, "Password must have a lowercase")
     .matches(/[A-Z]+/, "Password must have an uppercase")
@@ -144,7 +148,7 @@ const Login = () => {
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
                   />
-                {/* loadinButton geliştirme aşamasında olduğu için mui içinde lab'dan import ediliyor. */}
+                  {/* loadinButton geliştirme aşamasında olduğu için mui içinde lab'dan import ediliyor. */}
                   <LoadingButton
                     type="submit"
                     loading={loading}
