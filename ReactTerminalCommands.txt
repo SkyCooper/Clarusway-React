@@ -158,6 +158,9 @@ kütüphaneden sadece Typography al demek, daha hızlı çalışır.
 yarn add @mui/styles
 (rc-17 klasöründe örnek bir component var (MakeStylesComp.jsx), artık kullanılmıyor, fakat eski projlerde karşılaşılabilir.)
 
+yarn add @mui/lab
+(rc24 1.44 ten sonra)
+henüz geliştirme aşamasında olan bir elenent import etmeden önce kurulması için,
 
 TAILWIND İÇİN;
 1- yarn add -D tailwindcss postcss autoprefixer

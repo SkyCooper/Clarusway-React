@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import { TextField } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
+//? loadinButton geliştirme aşamasında olduğu için mui içinde lab'dan import ediliyor.
+//? importtan önce de yarn add @mui/lab ile kurulması gerekiyor.
 import * as yup from "yup";
 import useAuthCall from "../hooks/useAuthCall";
 import { useEffect } from "react";
@@ -87,13 +89,21 @@ const Login = () => {
 
           <Formik
             initialValues={{ email: "", password: "" }}
+            //? başlangıç değerlerini boş/null olarak veriyoruz,
+            //? form elementlerinde kullanılcak state'lerin başlangıç değerleri
             validationSchema={loginSchema}
+            //? aslında formik'in kendi validasyon metodları var, fakat burada biz yup kullandık
+            //? 1-direk burada dahili olarak yazılablir, 2-yukarıdaki gibi değişken olarak yazılabilir, 3-ayrı bir dosyada yazılıp burada import edilebilir.
             onSubmit={(values, actions) => {
               login(values);
+              //? logine valuler yollanıyor.
               navigate("/stock");
               actions.resetForm();
+              //? formu temizle
               actions.setSubmitting(false);
+              //? submit olduğunda otomatik true oluyor, manuel olarak false kuruluyor.
             }}
+            //? formun submitinde yapılacak işlemler buraya yazılıyor
           >
             {({
               values,
@@ -103,7 +113,10 @@ const Login = () => {
               touched,
               errors,
             }) => (
+              //! burada HTML form elementi, formik form elementi, MUI form elementi vs.. ne istersek onu import edip kullanabiliriz.
+              //! aşağıdaki formik Form elementi
               <Form>
+                {/* //! fakat içindeki elementleri MUİ den kullandık */}
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
                     label="Email"
@@ -111,13 +124,14 @@ const Login = () => {
                     id="email"
                     type="email"
                     variant="outlined"
+                    //? value değeri onSubmitteki values içinden geliyor.
                     value={values.email}
+                    //? handleChange ve handleBlur dahili olarak formik içinde geliyor.
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={touched.email && Boolean(errors.email)}
                     helperText={touched.email && errors.email}
                   />
-
                   <TextField
                     label="Password"
                     name="password"
@@ -130,6 +144,7 @@ const Login = () => {
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
                   />
+                {/* loadinButton geliştirme aşamasında olduğu için mui içinde lab'dan import ediliyor. */}
                   <LoadingButton
                     type="submit"
                     loading={loading}

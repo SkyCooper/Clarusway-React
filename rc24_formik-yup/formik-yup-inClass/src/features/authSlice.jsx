@@ -10,6 +10,8 @@ const authSlice = createSlice({
     isAdmin: false,
     token: null,
   },
+
+  
   reducers: {
     fetchStart: (state) => {
       state.loading = true;

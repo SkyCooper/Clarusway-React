@@ -6,5 +6,6 @@ const store = configureStore({
     auth: authReducer,
   },
   devTools: process.env.NODE_ENV !== "production",
+//? production aşamasında değil ise (start ise) devTool kullan, değilse (build, test, eject ise)
 });
 export default store;
