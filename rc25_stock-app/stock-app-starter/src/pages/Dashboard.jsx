@@ -2,26 +2,25 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import MenuListItems from "../components/MenuListItems";
+import { blueGrey } from "@mui/material/colors";
+import useAuthCalls from "../hooks/useAuthCalls";
+import { useSelector } from "react-redux";
 
 const drawerWidth = 200;
-//? yan menü genişliğini ayarlıyor..
 
 function Dashboard(props) {
+  const { currentUser } = useSelector((state) => state.auth);
+  const { logout } = useAuthCalls();
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -33,8 +32,7 @@ function Dashboard(props) {
     <div>
       <Toolbar />
       <Divider />
-      <MenuListItems/>
-
+      <MenuListItems />
     </div>
   );
 
@@ -61,9 +59,15 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+          {/* //? flexGrow ile yazılar ikiyana açıldı. */}
+          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+            Stock App
           </Typography>
+          {currentUser && (
+            <Button color="inherit" onClick={() => logout()}>
+              Logout
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
       <Box
@@ -87,6 +91,12 @@ function Dashboard(props) {
               width: drawerWidth,
             },
           }}
+          //? arkaplan rengi için PaperProps kullanılıyor.
+          PaperProps={{
+            sx: {
+              backgroundColor: blueGrey[900],
+            },
+          }}
         >
           {drawer}
         </Drawer>
@@ -97,6 +107,12 @@ function Dashboard(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+            },
+          }}
+          //? arkaplan rengi için PaperProps kullanılıyor.
+          PaperProps={{
+            sx: {
+              backgroundColor: blueGrey[900],
             },
           }}
           open
