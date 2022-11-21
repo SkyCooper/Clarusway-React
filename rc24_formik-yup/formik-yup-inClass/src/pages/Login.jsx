@@ -16,6 +16,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import * as yup from "yup";
 //? yup formik ile çok uyumlu kullanılıyor fakat mui ve diğer kütüphanelerle birlikte de kullanılabilir.
 import useAuthCall from "../hooks/useAuthCall";
+//* yazdığımız customHook import ediliyor.
 import { useEffect } from "react";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
@@ -41,6 +42,7 @@ const loginSchema = yup.object().shape({
 const Login = () => {
   const navigate = useNavigate();
   const { currentUser, error, loading } = useSelector((state) => state?.auth);
+  //* custumHook içindeki login fonksiyonu çağırılıyor.
   const { login } = useAuthCall();
 
   useEffect(() => {

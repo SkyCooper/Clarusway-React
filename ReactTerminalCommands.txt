@@ -129,8 +129,14 @@ yarn add react-router-dom@6.3 şeklinde yazılırsa istenen versiyon yüklenir.
 
 
 REACT FORMİK İÇİN;(patika.dev)
+(form handle edilmesi için kullanılan third-part kütüphane)
+(rc24)
 yarn add formik
 import { Formik, Field, Form } from "formik";
+
+YUP İÇİN;
+yarn add yup
+(error handle edilmesi için kullanılan third-part kütüphane)
 
 
 MATERIAL UI İÇİN ;
@@ -158,9 +164,6 @@ kütüphaneden sadece Typography al demek, daha hızlı çalışır.
 yarn add @mui/styles
 (rc-17 klasöründe örnek bir component var (MakeStylesComp.jsx), artık kullanılmıyor, fakat eski projlerde karşılaşılabilir.)
 
-yarn add @mui/lab
-(rc24 1.44 ten sonra)
-henüz geliştirme aşamasında olan bir elenent import etmeden önce kurulması için,
 
 TAILWIND İÇİN;
 1- yarn add -D tailwindcss postcss autoprefixer
@@ -187,10 +190,12 @@ module.exports = {
 5- yarn start ile projeyi çalıştır.
 
 FIREBASE İÇİN ;
+(rc18-19)
 yarn add firebase
 
 
 REDUX İÇİN;
+(rc21)
 -- hem redux hemde react-redux eklemek gerekli,
 yarn add redux react-redux
 --redux toolkit için;
@@ -198,3 +203,6 @@ toolkit yüklemek için react-redux yüklemek gerekiyor,
 react-redux  yüklenmiş bir projeye toolkit eklemek için ; yarn add @reduxjs/toolkit
 veya sıfırdan eklemek için; yarn add react-redux @reduxjs/toolkit
 
+TOASTIFY İÇİN;
+(rc-19 VE RC23)
+yarn add react-toastify
