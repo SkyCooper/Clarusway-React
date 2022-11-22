@@ -1,0 +1,14 @@
+başlamadan önce bu adrese git,
+https://console-13673.fullstack.clarusway.com/
+
+şifre :
+dancersoftaranto@gmail.com
+
+daha sonra;
+SERVER : ACTIVE olması lazım değlse aktif et.
+
+yoksa çalışmaz.
+
+canlı link için login;
+cooper@sky.com
+Cooper123.
