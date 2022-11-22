@@ -12,3 +12,6 @@ yoksa çalışmaz.
 canlı link için login;
 cooper@sky.com
 Cooper123.
+
+eğer projeyi baştan yapmak istersen,
+rc24-formik-yup dersine bak çünkü o derste yapılan login sayfası üzerinden devam etti yapmaya
