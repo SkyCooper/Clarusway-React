@@ -41,7 +41,7 @@ const useStockCalls = () => {
 
   const deleteFirm = (id) => deleteStockData("firms", id);
 
-  return { getFirms, getSales, deleteFirm };
+  return { getStockData, getFirms, getSales, deleteFirm };
 };
 
 export default useStockCalls;

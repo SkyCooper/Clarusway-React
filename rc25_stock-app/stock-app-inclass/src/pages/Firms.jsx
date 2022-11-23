@@ -5,15 +5,19 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import FirmCard from "../components/FirmCard";
 import useStockCalls from "../hooks/useStockCalls";
+import FirmModal from "../components/modals/FirmModal";
 
 const Firms = () => {
   //todo, axios instance ile yapılması
   const { getFirms } = useStockCalls();
   const { firms } = useSelector((state) => state.stock);
+
+  //? modal için stateler;
+  const [open, setOpen] = useState(false);
 
   //todo, düz axios ile yapılması;
   // const BASE_URL = "https://13673.fullstack.clarusway.com/";
@@ -45,7 +49,9 @@ const Firms = () => {
         Firms
       </Typography>
 
-      <Button variant="outlined">New Firm</Button>
+      <Button variant="outlined" onClick={()=> setOpen(true)}>New Firm</Button>
+
+      <FirmModal open={open}  setOpen={setOpen} />
 
       {firms?.length > 0 && (
         <Grid container justifyContent="center" gap={3}>
