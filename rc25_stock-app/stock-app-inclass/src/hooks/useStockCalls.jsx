@@ -41,7 +41,32 @@ const useStockCalls = () => {
 
   const deleteFirm = (id) => deleteStockData("firms", id);
 
-  return { getStockData, getFirms, getSales, deleteFirm };
+  //!------------- POST CALLS ----------------
+  const postStockData = async (info, url) => {
+    try {
+      await axiosWithToken.post(`stock/${url}/`, info);
+      toastSuccessNotify(`${url} successfuly added`);
+      getStockData(url);
+    } catch (error) {
+      console.log(error);
+      toastErrorNotify(`${url} can not be added`);
+    }
+  };
+  const postFirm = (info) => postStockData(info, "firms");
+
+  return {
+    getStockData,
+    postStockData,
+    getFirms,
+    getSales,
+    deleteFirm,
+    postFirm,
+  };
 };
+
+//? getStockData, postStockData, expoort edildiğinde aslında diğerlerine gerek yok
+//? getFirms yerine getStockData("firms") veya
+//? postFirm yerine postStockData(info, "firms") yazıp kullanabiliriz 
+//? ama kodun okunabilirliği açısından getFirms, postFirm kullanmak daha anlaşılır olur.
 
 export default useStockCalls;
