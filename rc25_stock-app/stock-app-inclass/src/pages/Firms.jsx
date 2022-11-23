@@ -16,8 +16,17 @@ const Firms = () => {
   const { getFirms } = useStockCalls();
   const { firms } = useSelector((state) => state.stock);
 
-  //? modal için stateler;
+  //? modal açılıp/kapanması için stateler;
   const [open, setOpen] = useState(false);
+  
+  //? modal içindeki bilgiler için state;
+  
+  const [info, setInfo] = useState({
+    name : "",
+    phone: "",
+    address : "",
+    image :"",
+  });
 
   //todo, düz axios ile yapılması;
   // const BASE_URL = "https://13673.fullstack.clarusway.com/";
@@ -51,7 +60,7 @@ const Firms = () => {
 
       <Button variant="outlined" onClick={()=> setOpen(true)}>New Firm</Button>
 
-      <FirmModal open={open}  setOpen={setOpen} />
+      <FirmModal open={open}  setOpen={setOpen} info={info} setInfo={setInfo} />
 
       {firms?.length > 0 && (
         <Grid container justifyContent="center" gap={3}>
