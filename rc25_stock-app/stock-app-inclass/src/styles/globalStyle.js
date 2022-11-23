@@ -19,4 +19,11 @@ export const flexCenter = {
   display : "flex",
   flexDirection : "column",
   gap : 2,
-}
+};
+
+export const arrowStyle = {
+  display: "flex",
+  justifyContent: "center",
+  cursor: "pointer",
+  "&:hover": { color: "red" },
+};

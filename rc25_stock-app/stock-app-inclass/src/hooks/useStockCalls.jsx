@@ -26,6 +26,9 @@ const useStockCalls = () => {
 
   const getFirms = () => getStockData("firms");
   const getSales = () => getStockData("sales");
+  const getCategories = () => getStockData("categories");
+  const getBrands = () => getStockData("brands");
+  const getProducts = () => getStockData("products");
 
   //!------------- DELETE CALLS ----------------
   const deleteStockData = async (url, id) => {
@@ -47,12 +50,27 @@ const useStockCalls = () => {
       await axiosWithToken.post(`stock/${url}/`, info);
       toastSuccessNotify(`${url} successfuly added`);
       getStockData(url);
+      //? bu aslında getFirms
     } catch (error) {
       console.log(error);
       toastErrorNotify(`${url} can not be added`);
     }
   };
   const postFirm = (info) => postStockData(info, "firms");
+
+  //!------------- PUT CALLS ----------------
+
+    const putStockData = async (info, url) => {
+      try {
+        await axiosWithToken.put(`stock/${url}/${info.id}/`, info);
+        toastSuccessNotify(`${url} successfuly updated`);
+        getStockData(url);
+      } catch (error) {
+        console.log(error);
+        toastErrorNotify(`${url} can not be added`);
+      }
+    };
+    const putFirm = (info) => putStockData(info, "firms");
 
   return {
     getStockData,
@@ -61,6 +79,10 @@ const useStockCalls = () => {
     getSales,
     deleteFirm,
     postFirm,
+    putFirm,
+    getCategories,
+    getProducts,
+    getBrands,
   };
 };
 
