@@ -1,3 +1,7 @@
+eğer projeyi baştan yapmak istersen,
+rc24-formik-yup dersine bak çünkü o derste yapılan login sayfası üzerinden devam etti yapmaya
+
+
 başlamadan önce bu adrese git,
 https://console-13673.fullstack.clarusway.com/
 
@@ -13,5 +17,15 @@ canlı link için login;
 cooper@sky.com
 Cooper123.
 
-eğer projeyi baştan yapmak istersen,
-rc24-formik-yup dersine bak çünkü o derste yapılan login sayfası üzerinden devam etti yapmaya
+
+
+https://console-13673.fullstack.clarusway.com/admin  linkine git
+username : admin
+password : admin
+
+girdikten sonra  Users;
+oradan da coopersky veya hangi username ile önceden register olunmuşsa onun yetkisini manager yap.
+
+
+
+

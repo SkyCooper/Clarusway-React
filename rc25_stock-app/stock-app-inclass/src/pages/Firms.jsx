@@ -1,7 +1,10 @@
 // import axios from "axios";
 // import { useDispatch, useSelector } from "react-redux";
 // import { fetchStart, getSuccess, fetchFail } from "../features/stockSlice";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import FirmCard from "../components/FirmCard";
@@ -41,12 +44,14 @@ const Firms = () => {
       <Typography variant="h4" color="error" mb={4}>
         Firms
       </Typography>
+
       <Button variant="outlined">New Firm</Button>
-      {firms?.lenght > 0 && (
+
+      {firms?.length > 0 && (
         <Grid container justifyContent="center" gap={3}>
           {firms?.map((firm) => (
             <Grid item>
-              <FirmCard key={firm.id} firm={firm}/>
+              <FirmCard key={firm.id} firm={firm} />
             </Grid>
           ))}
         </Grid>

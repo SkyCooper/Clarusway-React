@@ -9,12 +9,14 @@ const useStockCalls = () => {
   const { axiosWithToken } = useAxios();
 
   //! parametrik yapıyoruz,
+  //!------------- GET CALLS ----------------
+
   const getStockData = async (url) => {
     // const url = "firms";
     dispatch(fetchStart());
     try {
-      const { data } = await axiosWithToken.get(`stock/firms/${url}/`);
-      // console.log(data);
+      const { data } = await axiosWithToken.get(`stock/${url}/`);
+      console.log(data);
       dispatch(getSuccess({ data, url }));
     } catch (error) {
       dispatch(fetchFail());
@@ -25,18 +27,19 @@ const useStockCalls = () => {
   const getFirms = () => getStockData("firms");
   const getSales = () => getStockData("sales");
 
+  //!------------- DELETE CALLS ----------------
   const deleteStockData = async (url, id) => {
     try {
-      await axiosWithToken.delete(`stock/${url}/${id}`);
-      toastSuccessNotify(`${url} succesfully deleted`)
-      getStockData(url)
+      await axiosWithToken.delete(`stock/${url}/${id}/`);
+      toastSuccessNotify(`${url} successfuly deleted`);
+      getStockData(url);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toastErrorNotify(`${url} can not be deleted`);
     }
   };
 
-  const deleteFirm = (id) => deleteStockData("firms", id)
+  const deleteFirm = (id) => deleteStockData("firms", id);
 
   return { getFirms, getSales, deleteFirm };
 };
