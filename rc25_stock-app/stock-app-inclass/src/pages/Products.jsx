@@ -36,7 +36,7 @@ const Products = () => {
   }, []);
 
   const handleSortNumber = (arg) => {
-    setToggle({ ...toggle, [arg]: toggle.arg * -1 });
+    setToggle({ ...toggle, [arg]: toggle[arg] * -1 });
     //? yani toogle objesini aç, başlangıçta 1 olan ve argüman olarak gelen stock değeri  -1 olacak, veya -1 olan +1 olacak, devamlı terslenecek..
   };
   return (
