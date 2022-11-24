@@ -7,8 +7,17 @@ import useStockCalls from "../../hooks/useStockCalls";
 
 export default function BrandModal({ open, setOpen, info, setInfo }) {
   const { postBrand, putBrand } = useStockCalls();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInfo({ ...info, [name]: value });
+    //? yukarıda dest yapılmasaydı aşağıdaki gibi yazılırdı.
+    //? setInfo({...info, [e.target.name]:e.target.value})
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setOpen(false);
     if (info.id) {
       putBrand(info); //? update etmek için (yani edit)
     } else {
@@ -16,15 +25,6 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
     }
     setOpen(false); //? modalın kapanması için
     setInfo({}); //? modalın içini boşaltmak için
-  };
-
-  console.log(info);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInfo({ ...info, [name]: value });
-    //? yukarıda dest yapılmasaydı aşağıdaki gibi yazılırdı.
-    //? setInfo({...info, [e.target.name]:e.target.value})
   };
 
   return (
