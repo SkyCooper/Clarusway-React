@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { flexCenter, modalStyle } from "../../styles/globalStyle";
+import { flexColumn, modalStyle } from "../../styles/globalStyle";
 import { Button, TextField } from "@mui/material";
 import useStockCalls from "../../hooks/useStockCalls";
 
@@ -12,7 +12,7 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
     if (info.id) {
       putBrand(info); //? update etmek için (yani edit)
     } else {
-      postBrand(info); //? yeni firma eklemek için
+      postBrand(info); //? yeni marka eklemek için
     }
     setOpen(false); //? modalın kapanması için
     setInfo({}); //? modalın içini boşaltmak için
@@ -40,7 +40,7 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
       >
         {/* //! türünü form yaptık */}
         <Box sx={modalStyle}>
-          <Box component="form" onSubmit={handleSubmit} sx={flexCenter}>
+          <Box component="form" onSubmit={handleSubmit} sx={flexColumn}>
             <TextField
               label="Brand Name"
               name="name"
@@ -64,7 +64,12 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
               //? varsa name yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
-            <Button type="submit" variant="contained" size="large">
+            <Button
+              type="submit"
+              variant="contained"
+              color="success"
+              size="large"
+            >
               Save Brand
             </Button>
           </Box>

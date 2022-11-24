@@ -1,19 +1,15 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { flexCenter, modalStyle } from "../../styles/globalStyle";
+import { flexColumn, modalStyle } from "../../styles/globalStyle";
 import { Button, TextField } from "@mui/material";
 import useStockCalls from "../../hooks/useStockCalls";
 
 export default function FirmModal({ open, setOpen, info, setInfo }) {
-  const { postFirm, putFirm } = useStockCalls();
+  const { postProduct } = useStockCalls();
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (info.id) {
-      putFirm(info); //? update etmek için (yani edit)
-    } else {
-      postFirm(info); //? yeni firma eklemek için
-    }
+    postProduct(info.name, info.category_id, info.brand_id); //? yeni ürün eklemek için
     setOpen(false); //? modalın kapanması için
     setInfo({}); //? modalın içini boşaltmak için
   };
@@ -40,53 +36,56 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
       >
         {/* //! türünü form yaptık */}
         <Box sx={modalStyle}>
-          <Box component="form" onSubmit={handleSubmit} sx={flexCenter}>
+          <Box component="form" onSubmit={handleSubmit} sx={flexColumn}>
             <TextField
-              label="Firm Name"
+              label="Name"
               name="name"
               id="name"
               required
               type="text"
               variant="outlined"
               value={info?.name || ""}
-              //? varsa name yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
             <TextField
-              label="Phone"
-              name="phone"
-              id="phone"
-              required
-              type="tel"
-              variant="outlined"
-              value={info?.phone || ""}
-              //? varsa name yaz, yoksa boş geç hata verme demek
-              onChange={handleChange}
-            />
-            <TextField
-              label="Address"
-              name="address"
-              id="address"
+              label="Category ID"
+              name="category_id"
+              id="category_id"
               required
               type="text"
               variant="outlined"
-              value={info?.address || ""}
+              value={info?.category_id || ""}
               //? varsa name yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
             <TextField
-              label="Image"
-              name="image"
-              id="image"
+              label="Brand ID"
+              name="brand_id"
+              id="brand_id"
               required
-              type="url"
+              type="text"
               variant="outlined"
-              value={info?.image || ""}
-              //? varsa name yaz, yoksa boş geç hata verme demek
+              value={info?.brand_id || ""}
               onChange={handleChange}
             />
-            <Button type="submit" variant="contained" size="large">
-              Submit Firm
+
+            {/* <TextField
+              label="Stock"
+              name="stock"
+              id="stock"
+              required
+              type="number"
+              variant="outlined"
+              value={info?.stock || ""}
+              onChange={handleChange}
+            /> */}
+            <Button
+              type="submit"
+              variant="contained"
+              color="success"
+              size="large"
+            >
+              Submit Product
             </Button>
           </Box>
         </Box>

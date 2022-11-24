@@ -16,6 +16,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { btnHoverStyle, arrowStyle } from "../styles/globalStyle";
 import UpgradeIcon from "@mui/icons-material/Upgrade";
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
+import ProductModal from "../components/modals/ProductModal"
 
 
 //todo, Firms componentini kopyalaıp üzerinden değiştirdik...
@@ -49,8 +50,8 @@ const Products = () => {
       <Button variant="contained" color="error" onClick={() => setOpen(true)}>
         New Product
       </Button>
-      {/*
-      <ProductModal open={open} setOpen={setOpen} info={info} setInfo={setInfo} /> */}
+      
+      <ProductModal open={open} setOpen={setOpen} info={info} setInfo={setInfo} />
 
       {products?.length >= 0 && (
         <TableContainer component={Paper} sx={{ mt: 3 }} elevation={10}>
