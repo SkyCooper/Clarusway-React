@@ -12,6 +12,7 @@ export default function BrandCard({ brand, setOpen, setInfo }) {
   const { deleteBrand } = useStockCalls();
   return (
     <Card
+      elevation={10}
       sx={{
         p: 2,
         maxWidth: "300px",

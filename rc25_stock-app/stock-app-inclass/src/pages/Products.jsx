@@ -34,7 +34,7 @@ const Products = () => {
     getBrands();
     getCategories();
     getProducts();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSortNumber = (arg) => {
     setToggle({ ...toggle, [arg]: toggle[arg] * -1 });
@@ -46,7 +46,7 @@ const Products = () => {
         Products
       </Typography>
 
-      <Button variant="contained" onClick={() => setOpen(true)}>
+      <Button variant="contained" color="error" onClick={() => setOpen(true)}>
         New Product
       </Button>
       {/*
@@ -74,7 +74,10 @@ const Products = () => {
                   </Box>
                 </TableCell>
                 <TableCell align="center">
-                  <Box sx={arrowStyle} onClick={() => handleSortNumber("stock")}>
+                  <Box
+                    sx={arrowStyle}
+                    onClick={() => handleSortNumber("stock")}
+                  >
                     <div>Stock</div>
                     {toggle.stock === 1 && <UpgradeIcon />}
                     {toggle.stock !== 1 && <VerticalAlignBottomIcon />}

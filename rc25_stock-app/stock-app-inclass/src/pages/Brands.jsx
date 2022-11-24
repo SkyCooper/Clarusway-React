@@ -7,11 +7,13 @@ import { useSelector } from "react-redux";
 import BrandCard from "../components/cards/BrandCard";
 import useStockCalls from "../hooks/useStockCalls";
 import BrandModal from "../components/modals/BrandModal";
+import { Alert } from "@mui/material";
+import { flexCenter } from "../styles/globalStyle";
 
 const Brands = () => {
   //todo, axios instance ile yapılması
   const { getBrands } = useStockCalls();
-  const { brands } = useSelector((state) => state.stock);
+  const { brands, loading } = useSelector((state) => state.stock);
 
   //? modal açılıp/kapanması için stateler;
   const [open, setOpen] = useState(false);
@@ -21,22 +23,28 @@ const Brands = () => {
 
   useEffect(() => {
     getBrands();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Box>
-      <Typography variant="h4" color="error" mb={4}>
+      <Typography variant="h4" color="error" mb={2}>
         Brands
       </Typography>
 
-      <Button variant="outlined" onClick={() => setOpen(true)}>
+      <Button variant="contained" color="error" onClick={() => setOpen(true)}>
         New Brand
       </Button>
 
       <BrandModal open={open} setOpen={setOpen} info={info} setInfo={setInfo} />
 
+      {!loading && !brands?.length && (
+        <Alert severity="warning" sx={{ mt: 4, width: "50%" }}>
+          There is no brand to show
+        </Alert>
+      )}
+
       {brands?.length > 0 && (
-        <Grid container justifyContent="center" gap={3}>
+        <Grid container sx={flexCenter} mt={4}>
           {brands?.map((brand) => (
             <Grid item key={brand.id}>
               <BrandCard brand={brand} setOpen={setOpen} setInfo={setInfo} />

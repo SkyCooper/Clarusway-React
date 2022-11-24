@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-import { btnHoverStyle, flexCenter, flexColumn } from "../../styles/globalStyle";
+import { btnHoverStyle, flexCenter } from "../../styles/globalStyle";
 import useStockCalls from "../../hooks/useAuthCalls";
 import { CardHeader } from "@mui/material";
 
@@ -14,6 +14,7 @@ export default function FirmCard({ firm, setOpen, setInfo }) {
   const { deleteFirm } = useStockCalls();
   return (
     <Card
+      elevation={10}
       sx={{
         p: 2,
         maxWidth: "300px",

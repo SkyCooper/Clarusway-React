@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -15,6 +14,7 @@ import { blueGrey } from "@mui/material/colors";
 import useAuthCalls from "../hooks/useAuthCalls";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
+import { btnHoverStyle } from "../styles/globalStyle";
 
 const drawerWidth = 200;
 
@@ -65,7 +65,7 @@ function Dashboard(props) {
             Stock App
           </Typography>
           {currentUser && (
-            <Button color="inherit" onClick={() => logout()}>
+            <Button color="inherit" onClick={() => logout()} sx={btnHoverStyle}>
               Logout
             </Button>
           )}
