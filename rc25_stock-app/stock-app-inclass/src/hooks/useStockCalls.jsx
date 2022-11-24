@@ -43,6 +43,7 @@ const useStockCalls = () => {
   };
 
   const deleteFirm = (id) => deleteStockData("firms", id);
+  const deleteBrand = (id) => deleteStockData("brands", id);
 
   //!------------- POST CALLS ----------------
   const postStockData = async (info, url) => {
@@ -57,6 +58,7 @@ const useStockCalls = () => {
     }
   };
   const postFirm = (info) => postStockData(info, "firms");
+  const postBrand = (info) => postStockData(info, "brands");
 
   //!------------- PUT CALLS ----------------
 
@@ -71,6 +73,7 @@ const useStockCalls = () => {
       }
     };
     const putFirm = (info) => putStockData(info, "firms");
+    const putBrand = (info) => putStockData(info, "brands");
 
   return {
     getStockData,
@@ -78,11 +81,14 @@ const useStockCalls = () => {
     getFirms,
     getSales,
     deleteFirm,
+    deleteBrand,
     postFirm,
     putFirm,
     getCategories,
     getProducts,
     getBrands,
+    putBrand,
+    postBrand,
   };
 };
 
