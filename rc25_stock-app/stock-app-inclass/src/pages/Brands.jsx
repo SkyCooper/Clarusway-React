@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import BrandCard from "../components/BrandCard";
+import BrandCard from "../components/cards/BrandCard";
 import useStockCalls from "../hooks/useStockCalls";
 import BrandModal from "../components/modals/BrandModal";
 

@@ -1,15 +1,17 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-import { btnHoverStyle, flexCenter } from "../styles/globalStyle";
-import useStockCalls from "../hooks/useStockCalls";
+import { btnHoverStyle, flexCenter, flexColumn } from "../../styles/globalStyle";
+import useStockCalls from "../../hooks/useAuthCalls";
 import { CardHeader } from "@mui/material";
 
-export default function BrandCard({ brand, setOpen, setInfo }) {
-  const { deleteBrand } = useStockCalls();
+export default function FirmCard({ firm, setOpen, setInfo }) {
+  const { deleteFirm } = useStockCalls();
   return (
     <Card
       sx={{
@@ -21,26 +23,31 @@ export default function BrandCard({ brand, setOpen, setInfo }) {
         flexDirection: "column",
       }}
     >
-      <CardHeader title={brand?.name} />
+      <CardHeader title={firm?.name} subheader={firm?.address} />
       <CardMedia
         height="325"
         width="250"
-        image={brand?.image}
+        image={firm?.image}
         sx={{ p: 1, objectFit: "contain" }}
         component="img"
-        alt="brand-img"
+        alt="firm-img"
       />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          Phone: {firm?.phone}
+        </Typography>
+      </CardContent>
       <CardActions sx={flexCenter}>
         <EditIcon
           sx={btnHoverStyle}
           onClick={() => {
             setOpen(true);
-            setInfo(brand);
+            setInfo(firm);
           }}
         />
         <DeleteOutlineIcon
           sx={btnHoverStyle}
-          onClick={() => deleteBrand(brand?.id)}
+          onClick={() => deleteFirm(firm?.id)}
         />
       </CardActions>
     </Card>

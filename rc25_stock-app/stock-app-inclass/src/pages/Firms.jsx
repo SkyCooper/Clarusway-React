@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import FirmCard from "../components/FirmCard";
+import FirmCard from "../components/cards/FirmCard";
 import useStockCalls from "../hooks/useStockCalls";
 import FirmModal from "../components/modals/FirmModal";
 import { flexCenter } from "../styles/globalStyle";
