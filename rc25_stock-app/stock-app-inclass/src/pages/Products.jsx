@@ -39,6 +39,7 @@ const Products = () => {
     getProducts();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  //? Jenerik Sutun siralama fonksiyonu
   const handleSort = (arg, type) => {
     setToggle({ ...toggle, [arg]: toggle[arg] * -1 });
     //? yani toogle objesini aç, başlangıçta 1 olan ve argüman olarak gelen stock değeri  -1 olacak, veya -1 olan +1 olacak, devamlı terslenecek..
@@ -84,61 +85,36 @@ const Products = () => {
               <TableRow>
                 <TableCell align="center">#</TableCell>
                 <TableCell align="center">Category</TableCell>
-
-                {sortedProducts?.length > 0 && (
-                  <>
-                    <TableCell align="center">
-                      <Box sx={arrowStyle}>
-                        <div>Brand</div>
-                        {toggle.name === 1 && <UpgradeIcon />}
-                        {toggle.name !== 1 && <VerticalAlignBottomIcon />}
-                      </Box>
-                    </TableCell>
-                    <TableCell align="center">
-                      <Box
-                        sx={arrowStyle}
-                        onClick={() => handleSort("name", "text")}
-                      >
-                        <div>Name</div>
-                        {toggle.name === 1 && <UpgradeIcon />}
-                        {toggle.name !== 1 && <VerticalAlignBottomIcon />}
-                      </Box>
-                    </TableCell>
-                    <TableCell align="center">
-                      <Box
-                        sx={arrowStyle}
-                        onClick={() => handleSort("stock", "number")}
-                      >
-                        <div>Stock</div>
-                        {toggle.stock === 1 && <UpgradeIcon />}
-                        {toggle.stock !== 1 && <VerticalAlignBottomIcon />}
-                      </Box>
-                    </TableCell>
-                  </>
-                )}
-
-                {/* <TableCell align="center">
-                  <Box sx={arrowStyle}>
+                <TableCell align="center">
+                  <Box
+                    sx={arrowStyle}
+                    onClick={() => handleSort("brand", "text")}
+                  >
                     <div>Brand</div>
-                    {true && <UpgradeIcon />}
-                    {false && <VerticalAlignBottomIcon />}
+                    {toggle.brand === 1 && <UpgradeIcon />}
+                    {toggle.brand !== 1 && <VerticalAlignBottomIcon />}
                   </Box>
                 </TableCell>
                 <TableCell align="center">
-                  <Box sx={arrowStyle}>
+                  <Box
+                    sx={arrowStyle}
+                    onClick={() => handleSort("name", "text")}
+                  >
                     <div>Name</div>
-                    {true && <UpgradeIcon />}
-                    {false && <VerticalAlignBottomIcon />}
+                    {toggle.name === 1 && <UpgradeIcon />}
+                    {toggle.name !== 1 && <VerticalAlignBottomIcon />}
                   </Box>
                 </TableCell>
                 <TableCell align="center">
-                  <Box sx={arrowStyle} onClick={() => handleSort("stock")}>
+                  <Box
+                    sx={arrowStyle}
+                    onClick={() => handleSort("stock", "number")}
+                  >
                     <div>Stock</div>
                     {toggle.stock === 1 && <UpgradeIcon />}
                     {toggle.stock !== 1 && <VerticalAlignBottomIcon />}
                   </Box>
-                </TableCell> */}
-                
+                </TableCell>
                 <TableCell align="center">Operation</TableCell>
               </TableRow>
             </TableHead>
