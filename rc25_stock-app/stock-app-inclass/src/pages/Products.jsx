@@ -17,6 +17,7 @@ import { btnHoverStyle, arrowStyle } from "../styles/globalStyle";
 import UpgradeIcon from "@mui/icons-material/Upgrade";
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 
+
 //todo, Firms componentini kopyalaıp üzerinden değiştirdik...
 const Products = () => {
   const { getBrands, getCategories, getProducts } = useStockCalls();

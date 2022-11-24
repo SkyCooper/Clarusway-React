@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-import { btnHoverStyle } from "../styles/globalStyle";
+import { btnHoverStyle, flexCenter, flexColumn } from "../styles/globalStyle";
 import useStockCalls from "../hooks/useStockCalls";
 import { CardHeader } from "@mui/material";
 
@@ -37,7 +37,7 @@ export default function FirmCard({ firm, setOpen, setInfo }) {
           Phone: {firm?.phone}
         </Typography>
       </CardContent>
-      <CardActions sx={{ display: "flex", justifyContent: "center" }}>
+      <CardActions sx={flexCenter}>
         <EditIcon
           sx={btnHoverStyle}
           onClick={() => {

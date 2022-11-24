@@ -64,7 +64,7 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
               //? varsa name yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" size="large">
               Save Brand
             </Button>
           </Box>

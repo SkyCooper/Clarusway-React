@@ -1,12 +1,10 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-import { btnHoverStyle } from "../styles/globalStyle";
+import { btnHoverStyle, flexCenter } from "../styles/globalStyle";
 import useStockCalls from "../hooks/useStockCalls";
 import { CardHeader } from "@mui/material";
 
@@ -23,7 +21,7 @@ export default function BrandCard({ brand, setOpen, setInfo }) {
         flexDirection: "column",
       }}
     >
-      <CardHeader title={brand?.name}/>
+      <CardHeader title={brand?.name} />
       <CardMedia
         height="325"
         width="250"
@@ -32,7 +30,7 @@ export default function BrandCard({ brand, setOpen, setInfo }) {
         component="img"
         alt="brand-img"
       />
-      <CardActions sx={{ display: "flex", justifyContent: "center" }}>
+      <CardActions sx={flexCenter}>
         <EditIcon
           sx={btnHoverStyle}
           onClick={() => {

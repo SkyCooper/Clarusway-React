@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { flexCenter, modalStyle } from "../../styles/globalStyle";
+import { flexColumn, modalStyle } from "../../styles/globalStyle";
 import { Button, TextField } from "@mui/material";
 import useStockCalls from "../../hooks/useStockCalls";
 
@@ -40,7 +40,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
       >
         {/* //! türünü form yaptık */}
         <Box sx={modalStyle}>
-          <Box component="form" onSubmit={handleSubmit} sx={flexCenter}>
+          <Box component="form" onSubmit={handleSubmit} sx={flexColumn}>
             <TextField
               label="Firm Name"
               name="name"
@@ -85,7 +85,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               //? varsa name yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" size="large">
               Submit Firm
             </Button>
           </Box>

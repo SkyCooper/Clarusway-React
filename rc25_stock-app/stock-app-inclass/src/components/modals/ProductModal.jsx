@@ -85,7 +85,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               //? varsa name yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" size="large">
               Submit Firm
             </Button>
           </Box>
