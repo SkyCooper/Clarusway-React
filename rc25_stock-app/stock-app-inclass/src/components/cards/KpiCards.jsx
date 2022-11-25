@@ -8,26 +8,49 @@ import { flex } from "../../styles/globalStyle";
 import { useSelector } from "react-redux";
 
 const KpiCards = () => {
-  const {sales, purchases} = useSelector((state)=> state.stock)
-  // const totalSales = sales?.
+  const { sales, purchases } = useSelector((state) => state.stock);
+
+  // //? API içinde toplam sales, total_price olarak hazır verilmiş,
+  // const totalSales = sales
+  //   ?.map((purchase) => Number(purchase.price_total))
+  //   .reduce((acc, val) => acc + val, 0);
+
+  // //? API içinde toplam purchases, total_price olarak hazır verilmiş,
+  // const totalPurchases = purchases
+  //   ?.map((sale) => Number(sale.price_total))
+  //   .reduce((acc, val) => acc + val, 0);
+
+  // const totalProfit = totalSales - totalPurchases;
+
+  const total = (data) =>
+    data
+      ?.map((item) => Number(item.price_total))
+      .reduce((acc, val) => acc + val, 0);
+
+      
+  const totalProfit = total(sales) - total(purchases);
+
   const data = [
     {
       title: "sales",
-      metric: "$4285",
+      metric: `$${total(sales) || ""}`,
+      // metric: `$${totalSales || ""}`,
+      //! totalsales varsa yazdır, yoksa birşey yazma
       icon: <MonetizationOnIcon />,
       color: indigo[900],
       bgColor: indigo[100],
     },
     {
       title: "profit",
-      metric: "$4285",
+      metric: `$${totalProfit || ""}`,
       icon: <PaymentsIcon />,
       color: pink[900],
       bgColor: pink[100],
     },
     {
       title: "purchases",
-      metric: "$4285",
+      metric: `$${total(purchases) || ""}`,
+      // metric: `$${totalPurchases || ""}`,
       icon: <ShoppingCartIcon />,
       color: amber[900],
       bgColor: amber[100],
