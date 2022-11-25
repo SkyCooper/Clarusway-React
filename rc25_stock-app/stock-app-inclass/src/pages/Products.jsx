@@ -20,38 +20,50 @@ import { arrowStyle, btnHoverStyle, flexCenter } from "../styles/globalStyle";
 import ProductModal from "../components/modals/ProductModal";
 import useSortColumn from "../hooks/useSortColumn";
 import { MultiSelectBox, MultiSelectBoxItem } from "@tremor/react";
+import MultiSelect from "../components/MultiSelect";
 
 const Products = () => {
   const {
-    getBrands,
-    getCategories,
-    getProducts,
-    deleteProduct,
+    // getBrands,
+    // getCategories,
+    // getProducts,
     getProCatBrands,
+    deleteProduct,
   } = useStockCalls();
   const { products, brands } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
   const [info, setInfo] = useState({});
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const columnObj = {
+    brand: 1,
+    name: 1,
+    stock: 1,
+  };
+  console.log(products);
+
+  const [filteredData, setFilteredData] = useState(products);
+
+  useEffect(() => {
+    setFilteredData(products);
+  }, [products]);
+
+  console.log(filteredData);
+
+  const { sortedData, handleSort, columns } = useSortColumn(
+    filteredData,
+    columnObj
+  );
+
+  console.log(filteredData);
 
   useEffect(() => {
     // getBrands();
     // getCategories();
     // getProducts();
     getProCatBrands();
-  }, []);
-
-  const columnObj = {
-    brand: 1,
-    name: 1,
-    stock: 1,
-  };
-
-  const { sortedData, handleSort, columns } = useSortColumn(
-    products,
-    columnObj
-  );
+    // eslint-disable-next-line
+  }, []); 
 
   //? Verilen item secilen brand'larin icerisinde varsa true dondurur
   //? VEYA hic brand secilmemisse true dondurur.aksinde false dondurur.
@@ -112,7 +124,14 @@ const Products = () => {
       <Button variant="contained" onClick={() => setOpen(true)}>
         New Product
       </Button>
-      <Box sx={flexCenter} mt={3}>
+      <MultiSelect
+        products={products}
+        brands={brands}
+        filteredData={filteredData}
+        setFilteredData={setFilteredData}
+        sortedData={sortedData}
+      />
+      {/* <Box sx={flexCenter} mt={3}>
         <MultiSelectBox
           handleSelect={(item) => setSelectedBrands(item)}
           placeholder="Select Brand"
@@ -133,7 +152,7 @@ const Products = () => {
             <MultiSelectBoxItem key={item} value={item} text={item} />
           ))}
         </MultiSelectBox>
-      </Box>
+      </Box> */}
       <ProductModal
         open={open}
         setOpen={setOpen}
@@ -182,26 +201,26 @@ const Products = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {sortedData
-                ?.filter((item) => isBrandSelected(item))
-                .filter((item) => isProductSelected(item))
-                .map((product, index) => (
-                  <TableRow
-                    key={product.name}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              {sortedData?.map((product, index) => (
+                <TableRow
+                  key={product.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell align="center" component="th" scope="row">
+                    {index + 1}
+                  </TableCell>
+                  <TableCell align="center">{product.category}</TableCell>
+                  <TableCell align="center">{product.brand}</TableCell>
+                  <TableCell align="center">{product.name}</TableCell>
+                  <TableCell align="center">{product.stock}</TableCell>
+                  <TableCell
+                    align="center"
+                    onClick={() => deleteProduct(product.id)}
                   >
-                    <TableCell align="center" component="th" scope="row">
-                      {index + 1}
-                    </TableCell>
-                    <TableCell align="center">{product.category}</TableCell>
-                    <TableCell align="center">{product.brand}</TableCell>
-                    <TableCell align="center">{product.name}</TableCell>
-                    <TableCell align="center">{product.stock}</TableCell>
-                    <TableCell align="center" onClick={() => deleteProduct(product.id)}>
-                      <DeleteIcon sx={btnHoverStyle} />
-                    </TableCell>
-                  </TableRow>
-                ))}
+                    <DeleteIcon sx={btnHoverStyle} />
+                  </TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </TableContainer>
