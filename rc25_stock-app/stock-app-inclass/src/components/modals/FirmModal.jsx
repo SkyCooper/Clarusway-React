@@ -71,7 +71,6 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               type="text"
               variant="outlined"
               value={info?.address || ""}
-              //? varsa name yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
             <TextField
@@ -82,7 +81,6 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               type="url"
               variant="outlined"
               value={info?.image || ""}
-              //? varsa name yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
             <Button

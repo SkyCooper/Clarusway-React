@@ -34,6 +34,7 @@ const useStockCalls = () => {
   const getCategories = () => getStockData("categories");
   const getBrands = () => getStockData("brands");
   const getProducts = () => getStockData("products");
+  const getPurchases = () => getStockData("purchases");
 
   //todo, promiseAll yazıyoruz,
   //todo, products, categories ve brands hepsi aynı anda API den çekiliyor
@@ -109,6 +110,7 @@ const useStockCalls = () => {
     getFirms,
     getSales,
     getProCatBrands,
+    getPurchases,
     deleteFirm,
     deleteBrand,
     deleteProduct,

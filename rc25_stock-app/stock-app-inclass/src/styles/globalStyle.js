@@ -20,6 +20,12 @@ export const flexCenter = {
   alignItems : "center",
   gap: 2,
 };
+export const flex = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems : "center",
+  gap: 2,
+};
 
 export const flexColumn = {
   display: "flex",
