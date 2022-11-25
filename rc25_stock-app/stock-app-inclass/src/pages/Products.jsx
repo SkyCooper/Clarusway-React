@@ -1,6 +1,12 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import useStockCalls from "../hooks/useStockCalls";
+import { useSelector } from "react-redux";
+import { arrowStyle, btnHoverStyle } from "../styles/globalStyle";
+import ProductModal from "../components/modals/ProductModal";
+import useSortColumn from "../hooks/useSortColumn";
+import MultiSelect from "../components/MultiSelect";
+
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -15,26 +21,18 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import UpgradeIcon from "@mui/icons-material/Upgrade";
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 
-import { useSelector } from "react-redux";
-import { arrowStyle, btnHoverStyle, flexCenter } from "../styles/globalStyle";
-import ProductModal from "../components/modals/ProductModal";
-import useSortColumn from "../hooks/useSortColumn";
-import { MultiSelectBox, MultiSelectBoxItem } from "@tremor/react";
-import MultiSelect from "../components/MultiSelect";
-
 const Products = () => {
   const {
     // getBrands,
     // getCategories,
     // getProducts,
+    //todo, 3 fonksiyon birleştirildi..
     getProCatBrands,
     deleteProduct,
   } = useStockCalls();
   const { products, brands } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
   const [info, setInfo] = useState({});
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [selectedProducts, setSelectedProducts] = useState([]);
   const columnObj = {
     brand: 1,
     name: 1,
@@ -55,29 +53,14 @@ const Products = () => {
     columnObj
   );
 
-  console.log(filteredData);
-
   useEffect(() => {
     // getBrands();
     // getCategories();
     // getProducts();
+    //todo, 3 fonksiyon birleştirildi..
     getProCatBrands();
     // eslint-disable-next-line
-  }, []); 
-
-  //? Verilen item secilen brand'larin icerisinde varsa true dondurur
-  //? VEYA hic brand secilmemisse true dondurur.aksinde false dondurur.
-  //? bu fonksiyon filter() icerisinde yazilacagi icin false dondurmesi
-  //? durumunda filter bir suzme yapmamis olur.
-  const isBrandSelected = (item) =>
-    selectedBrands.includes(item.brand) || selectedBrands.length === 0;
-
-  const isProductSelected = (item) =>
-    selectedProducts.includes(item.name) || selectedProducts.length === 0;
-
-  const filteredProducts = products
-    ?.filter((item) => selectedBrands.includes(item.brand))
-    .map((item) => item.name);
+  }, []);
 
   // //? Siralanacak local state (sutun verilerinin local state hali)
   // const [sortedProducts, setSortedProducts] = useState(products);
@@ -127,32 +110,8 @@ const Products = () => {
       <MultiSelect
         products={products}
         brands={brands}
-        filteredData={filteredData}
         setFilteredData={setFilteredData}
-        sortedData={sortedData}
       />
-      {/* <Box sx={flexCenter} mt={3}>
-        <MultiSelectBox
-          handleSelect={(item) => setSelectedBrands(item)}
-          placeholder="Select Brand"
-        >
-          {brands?.map((item) => (
-            <MultiSelectBoxItem
-              key={item.name}
-              value={item.name}
-              text={item.name}
-            />
-          ))}
-        </MultiSelectBox>
-        <MultiSelectBox
-          handleSelect={(item) => setSelectedProducts(item)}
-          placeholder="Select Product"
-        >
-          {filteredProducts?.map((item) => (
-            <MultiSelectBoxItem key={item} value={item} text={item} />
-          ))}
-        </MultiSelectBox>
-      </Box> */}
       <ProductModal
         open={open}
         setOpen={setOpen}

@@ -2,18 +2,15 @@ import React, { useEffect, useState } from "react";
 import { MultiSelectBox, MultiSelectBoxItem } from "@tremor/react";
 import { flexCenter } from "../styles/globalStyle";
 import Box from "@mui/material/Box";
-import useSortColumn from "../hooks/useSortColumn";
 
-const MultiSelect = ({
-  products,
-  brands,
-  setFilteredData,
-  filteredData,
-  sortedData,
-}) => {
+const MultiSelect = ({ products, brands, setFilteredData }) => {
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
 
+  //? Verilen item secilen brand'larin icerisinde varsa true dondurur
+  //? VEYA hic brand secilmemisse true dondurur.aksinde false dondurur.
+  //? bu fonksiyon filter() icerisinde yazilacagi icin false dondurmesi
+  //? durumunda filter bir suzme yapmamis olur.
   const isBrandSelected = (item) =>
     selectedBrands.includes(item.brand) || selectedBrands.length === 0;
 
@@ -34,13 +31,8 @@ const MultiSelect = ({
 
   useEffect(() => {
     filterFunction();
-    console.log(filteredData);
-    console.log("first");
     // eslint-disable-next-line
   }, [selectedBrands, selectedProducts]);
-
-  console.log(filteredData);
-  console.log("second");
 
   return (
     <Box sx={flexCenter} mt={3}>
