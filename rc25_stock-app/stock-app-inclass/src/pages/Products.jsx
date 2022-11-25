@@ -104,7 +104,7 @@ const Products = () => {
       <Typography variant="h4" color="error" mb={4}>
         Products
       </Typography>
-      <Button variant="contained" onClick={() => setOpen(true)}>
+      <Button variant="contained" color="error" onClick={() => setOpen(true)}>
         New Product
       </Button>
       <MultiSelect
@@ -118,7 +118,6 @@ const Products = () => {
         info={info}
         setInfo={setInfo}
       />
-      ;
       {sortedData?.length > 0 && (
         <TableContainer component={Paper} sx={{ mt: 3 }} elevation={10}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">

@@ -5,7 +5,7 @@ import { flexColumn, modalStyle } from "../../styles/globalStyle";
 import { Button, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import useStockCalls from "../../hooks/useStockCalls";
 
-export default function ProductModal({ open, setOpen, info, setInfo }) {
+export default function PurchasesModal({ open, setOpen, info, setInfo }) {
   const { postProduct } = useStockCalls();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,15 +61,36 @@ export default function ProductModal({ open, setOpen, info, setInfo }) {
               <MenuItem value={20}>Twenty</MenuItem>
               <MenuItem value={30}>Thirty</MenuItem>
             </Select>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={info.name}
+              label="Age"
+              onChange={handleChange}
+            >
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
             <TextField
-              label="Product Name"
+              label="Quantity"
               name="name"
               id="name"
               required
-              type="text"
+              type="number"
               variant="outlined"
               value={info?.name || ""}
               //? varsa name yaz, yoksa boş geç hata verme demek
+              onChange={handleChange}
+            />
+            <TextField
+              label="Price"
+              name="name"
+              id="name"
+              required
+              type="number"
+              variant="outlined"
+              value={info?.name || ""}
               onChange={handleChange}
             />
             <Button
