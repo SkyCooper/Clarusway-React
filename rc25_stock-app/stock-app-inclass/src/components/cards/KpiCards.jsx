@@ -22,6 +22,7 @@ const KpiCards = () => {
 
   // const totalProfit = totalSales - totalPurchases;
 
+  //! yukarıdaki gibi tek tek yapabiliirz veya tek bir fonksiyon tanımlayıp, parametrik hale getirip kullanabiliriz..
   const total = (data) =>
     data
       ?.map((item) => Number(item.price_total))
@@ -36,14 +37,14 @@ const KpiCards = () => {
       metric: `$${total(sales) || ""}`,
       // metric: `$${totalSales || ""}`,
       //! totalsales varsa yazdır, yoksa birşey yazma
-      icon: <MonetizationOnIcon />,
+      icon: <MonetizationOnIcon sx={{ fontSize: "3rem" }} />,
       color: indigo[900],
       bgColor: indigo[100],
     },
     {
       title: "profit",
       metric: `$${totalProfit || ""}`,
-      icon: <PaymentsIcon />,
+      icon: <PaymentsIcon sx={{ fontSize: "3rem" }} />,
       color: pink[900],
       bgColor: pink[100],
     },
@@ -51,17 +52,25 @@ const KpiCards = () => {
       title: "purchases",
       metric: `$${total(purchases) || ""}`,
       // metric: `$${totalPurchases || ""}`,
-      icon: <ShoppingCartIcon />,
+      icon: <ShoppingCartIcon sx={{ fontSize: "3rem" }} />,
       color: amber[900],
       bgColor: amber[100],
     },
   ];
 
   return (
-    <Grid container justifyContent="center" alignItems="center" spacing={2}>
+    <Grid container justifyContent="center" alignItems="center" spacing={1}>
       {data.map((item) => (
-        <Grid item key={item.title} sx={{ width: "400px" }}>
-          <Paper sx={{ p: 2 }} elevation={8}>
+        <Grid
+          item
+          key={item.title}
+          xs={12}
+          sm={10}
+          md={6}
+          lg={4}
+          sx={{ minWidth: "250px" }}
+        >
+          <Paper sx={{ p: 2 }} elevation={10}>
             <Box sx={{ display: "flex" }}>
               <Avatar
                 sx={{
@@ -69,15 +78,17 @@ const KpiCards = () => {
                   height: "4rem",
                   color: item.color,
                   backgroundColor: item.bgColor,
+                  my: "auto",
+                  mx: 2,
                 }}
               >
                 {item.icon}
               </Avatar>
-              <Box sx={{ mx: 4, flexGrow: 1 }}>
+              <Box sx={{ mx: 3 }}>
                 {/* //! button özelliği verince yazıları otomatik büyük harf yapıyor. */}
-                {/* <Typography variant="button">{item.title}</Typography> */}
+                <Typography variant="button">{item.title}</Typography>
                 {/* //! veya toUpperCase() */}
-                <Typography>{item.title.toUpperCase()}</Typography>
+                {/* <Typography>{item.title.toUpperCase()}</Typography> */}
                 <Typography variant="h4">{item.metric}</Typography>
               </Box>
             </Box>

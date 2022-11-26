@@ -14,13 +14,13 @@ const useSortColumn = (data, columnObj) => {
     setSortedData(data);
   }, [data]);
 
-  const handleSort = (arg, type) => {
+  const handleSort = (arg) => {
     setColumns({ ...columns, [arg]: columns[arg] * -1 });
     setSortedData(
       sortedData
         ?.map((item) => item)
         .sort((a, b) => {
-          if (type === "number") {
+          if (!isNaN(Number(a[arg]))) {
             return columns[arg] * (a[arg] - b[arg]);
           } else {
             if (columns[arg] === 1) {
