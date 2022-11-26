@@ -4,7 +4,6 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import { amber, indigo, pink } from "@mui/material/colors";
-import { flex } from "../../styles/globalStyle";
 import { useSelector } from "react-redux";
 
 const KpiCards = () => {

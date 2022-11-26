@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 import ChartsCard from "../components/cards/ChartsCard";
