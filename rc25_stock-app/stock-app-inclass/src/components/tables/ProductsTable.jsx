@@ -10,12 +10,12 @@ import Box from "@mui/material/Box";
 import UpgradeIcon from "@mui/icons-material/Upgrade";
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import Typography from "@mui/material/Typography";
 
-import useSortColumn from "../../hooks/useSortColumn";
 import { arrowStyle, btnHoverStyle } from "../../styles/globalStyle";
-import useStockCalls from "../../hooks/useStockCalls";
 import { useSelector } from "react-redux";
-import { Typography } from "@mui/material";
+import useSortColumn from "../../hooks/useSortColumn";
+import useStockCalls from "../../hooks/useStockCalls";
 
 const ProductsTable = ({ selectedProducts, selectedBrands }) => {
   const { deleteProduct } = useStockCalls();

@@ -17,6 +17,7 @@ export default function ProductModal({ open, setOpen, info, setInfo }) {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
   };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setOpen(false);

@@ -2,11 +2,13 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { flexColumn, modalStyle } from "../../styles/globalStyle";
-import { Button, TextField } from "@mui/material";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import useStockCalls from "../../hooks/useStockCalls";
 
 export default function FirmModal({ open, setOpen, info, setInfo }) {
   const { postFirm, putFirm } = useStockCalls();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (info.id) {
@@ -28,7 +30,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
   };
 
   return (
-    <div>
+    <div> //? sadece modal
       <Modal
         open={open}
         onClose={() => {
@@ -60,7 +62,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               type="tel"
               variant="outlined"
               value={info?.phone || ""}
-              //? varsa name yaz, yoksa boş geç hata verme demek
+              //? varsa phone yaz, yoksa boş geç hata verme demek
               onChange={handleChange}
             />
             <TextField

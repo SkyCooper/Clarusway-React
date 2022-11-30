@@ -1,26 +1,33 @@
 import * as React from "react";
+import { flexColumn, modalStyle } from "../../styles/globalStyle";
+
+import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { flexColumn, modalStyle } from "../../styles/globalStyle";
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
+import TextField from "@mui/material/TextField";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import FormControl from "@mui/material/FormControl";
+
 import useStockCalls from "../../hooks/useStockCalls";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function PurchasesModal({ open, setOpen, info, setInfo }) {
   const navigate = useNavigate();
-  const { postProduct } = useStockCalls();
+  const { postProduct, putPurchase, postPurchase } = useStockCalls();
   const { firms, brands, products } = useSelector((state) => state.stock);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    postProduct(info.name, info.category_id, info.brand_id); //? yeni ürün eklemek için
+    if (info.id) {
+      putPurchase(info); //? varolan ürün güncellemek için;
+    } else {
+      postPurchase(info); //? yeni ürün eklemek için;
+    }
+
+    // postProduct(info.name, info.category_id, info.brand_id); //? yeni ürün eklemek için
     setOpen(false); //? modalın kapanması için
     setInfo({}); //? modalın içini boşaltmak için
   };
@@ -28,6 +35,7 @@ export default function PurchasesModal({ open, setOpen, info, setInfo }) {
   console.log(info);
 
   const handleChange = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
     //? yukarıda dest yapılmasaydı aşağıdaki gibi yazılırdı.

@@ -1,14 +1,16 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import { flexColumn, modalStyle } from "../../styles/globalStyle";
-import { Button, TextField } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Modal from "@mui/material/Modal";
 import useStockCalls from "../../hooks/useStockCalls";
 
 export default function BrandModal({ open, setOpen, info, setInfo }) {
   const { postBrand, putBrand } = useStockCalls();
 
   const handleChange = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
     //? yukarıda dest yapılmasaydı aşağıdaki gibi yazılırdı.
@@ -28,7 +30,6 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
   };
 
   return (
-    <div>
       <Modal
         open={open}
         onClose={() => {
@@ -75,6 +76,5 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
           </Box>
         </Box>
       </Modal>
-    </div>
   );
 }

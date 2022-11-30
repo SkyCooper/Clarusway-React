@@ -6,17 +6,17 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import UpgradeIcon from "@mui/icons-material/Upgrade";
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+import Typography from "@mui/material/Typography";
 
-import useSortColumn from "../../hooks/useSortColumn";
 import { arrowStyle, btnHoverStyle, flex } from "../../styles/globalStyle";
-import useStockCalls from "../../hooks/useStockCalls";
 import { useSelector } from "react-redux";
+import useSortColumn from "../../hooks/useSortColumn";
+import useStockCalls from "../../hooks/useStockCalls";
 
 const PurchasesTable = ({
   setOpen,
