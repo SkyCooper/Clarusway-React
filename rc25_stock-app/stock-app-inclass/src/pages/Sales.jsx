@@ -27,7 +27,7 @@ const Sales = () => {
     getProCatBrands,
     deleteProduct,
   } = useStockCalls();
-  const { products, brands } = useSelector((state) => state.stock);
+  const { sales, brands } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
   const [info, setInfo] = useState({});
   const columnObj = {
@@ -35,13 +35,13 @@ const Sales = () => {
     name: 1,
     stock: 1,
   };
-  console.log(products);
+  console.log(sales);
 
-  const [filteredData, setFilteredData] = useState(products);
+  const [filteredData, setFilteredData] = useState(sales);
 
   useEffect(() => {
-    setFilteredData(products);
-  }, [products]);
+    setFilteredData(sales);
+  }, [sales]);
 
   console.log(filteredData);
 
@@ -64,7 +64,7 @@ const Sales = () => {
         New Sale
       </Button>
       <MultiSelect
-        products={products}
+        products={sales}
         brands={brands}
         setFilteredData={setFilteredData}
       />
