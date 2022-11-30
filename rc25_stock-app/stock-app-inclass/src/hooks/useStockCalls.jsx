@@ -5,9 +5,10 @@ import {
   fetchStart,
   getSuccess,
   getProCatBrandsSuccess,
+  getAllStockSuccess,
 } from "../features/stockSlice";
-import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import useAxios from "./useAxios";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
 const useStockCalls = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ const useStockCalls = () => {
   //todo, products, categories ve brands hepsi aynı anda API den çekiliyor
   //todo, hepsi en uzun süreli olanın zamanında bitiyor, (200, 150, 180)
   //todo, 530 ms iken, hepsi 200ms de bitiyor.
+
   const getProCatBrands = async () => {
     dispatch(fetchStart());
     try {
@@ -53,6 +55,33 @@ const useStockCalls = () => {
       );
     } catch (error) {
       console.log(error);
+      dispatch(fetchFail());
+    }
+  };
+
+  const getAllStockData = async () => {
+    dispatch(fetchStart());
+    try {
+      const [purchases, firms, brands, sales, products, categories] =
+        await Promise.all([
+          axiosWithToken.get("/stock/purchases"),
+          axiosWithToken.get("/stock/firms"),
+          axiosWithToken.get("/stock/brands"),
+          axiosWithToken.get("/stock/sales"),
+          axiosWithToken.get("/stock/products"),
+          axiosWithToken.get("/stock/categories"),
+        ]);
+      dispatch(
+        getAllStockSuccess([
+          purchases.data,
+          firms.data,
+          brands.data,
+          sales.data,
+          products.data,
+          categories.data,
+        ])
+      );
+    } catch (err) {
       dispatch(fetchFail());
     }
   };
@@ -72,6 +101,8 @@ const useStockCalls = () => {
   const deleteFirm = (id) => deleteStockData("firms", id);
   const deleteBrand = (id) => deleteStockData("brands", id);
   const deleteProduct = (id) => deleteStockData("products", id);
+  const deleteSale = (id) => deleteStockData("sales", id);
+  const deletePurchase = (id) => deleteStockData("purchases", id);
 
   //!------------- POST CALLS ----------------
   const postStockData = async (info, url) => {
@@ -85,9 +116,12 @@ const useStockCalls = () => {
       toastErrorNotify(`${url} can not be added`);
     }
   };
+
   const postFirm = (info) => postStockData(info, "firms");
   const postBrand = (info) => postStockData(info, "brands");
   const postProduct = (info) => postStockData(info, "products");
+  const postSale = (info) => postStockData(info, "sales");
+  const postPurchase = (info) => postStockData(info, "purchases");
 
   //!------------- PUT CALLS ----------------
 
@@ -101,27 +135,39 @@ const useStockCalls = () => {
       toastErrorNotify(`${url} can not be added`);
     }
   };
+
   const putFirm = (info) => putStockData(info, "firms");
   const putBrand = (info) => putStockData(info, "brands");
+  const putSale = (info) => putStockData(info, "sales");
+  const putPurchase = (info) => putStockData(info, "purchases");
+
 
   return {
     getStockData,
-    postStockData,
     getFirms,
     getSales,
+    getCategories,
+    getProducts,
     getProCatBrands,
+    getBrands,
     getPurchases,
+    getAllStockData,
     deleteFirm,
     deleteBrand,
     deleteProduct,
+    deleteSale,
+    deletePurchase,
     postFirm,
-    putFirm,
-    getCategories,
-    getProducts,
-    getBrands,
-    putBrand,
+    postStockData,
     postBrand,
     postProduct,
+    postSale,
+    postPurchase,
+    putFirm,
+    putStockData,
+    putBrand,
+    putSale,
+    putPurchase,
   };
 };
 

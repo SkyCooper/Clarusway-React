@@ -18,14 +18,19 @@ const escapedToken = JSON.parse(localStorage.getItem("persist:root"))?.token;
 const token = escapedToken && JSON.parse(escapedToken);
 // ama token logout iken null, giriş yapıldığı anda axios çalışıyor ve bazen token henüz localstorage geçmediğinden null kalıyor, bundan dolayı hata verebiliyor.
 
+const BASE_URL = "https://13673.fullstack.clarusway.com/";
+
+//* Token'siz api istekleri icin bir instance olustur.
+export const axiosPublic = axios.create({
+  baseURL: BASE_URL,
+});
+
 //* Token gerektiren istekler icin bir baska instance olusutur.
 export const axioswithToken = axios.create({
-  baseURL: "https://13673.fullstack.clarusway.com/",
+  baseURL: BASE_URL,
   headers: { Authorization: `Token ${token}` },
   //! interseptor kullanınca gerek kalmıyor.
 });
-
-
 
 //? siteden default hali; (interseptor)
 // axios.interceptors.request.use(function (config) {
@@ -44,16 +49,18 @@ export const axioswithToken = axios.create({
 
 axioswithToken.interceptors.request.use((config) => {
   console.log("interseptor running");
+
   if (!config.headers["Authorization"]) {
     config.headers["Authorization"] = `Token ${token}`;
   }
   return config;
 });
 
+
+//todo, 2-güzel çözüm customHook yazmaktır,
 //! ------------------------------------------------------
 //! Bunlara alternatif olarak eger axios instance kullanimini
 //! custom hook icerisinde yaparsak daha kolay bir sekilde token'a
 //! erismek mumkun olur.
 //! ------------------------------------------------------
 
-//todo, 2-güzel çözüm customHook yazmaktır,
