@@ -19,7 +19,7 @@ Cooper123.
 
 
 
-https://console-13673.fullstack.clarusway.com/admin  linkine git
+https://13673.fullstack.clarusway.com/admin  linkine git
 username : admin
 password : admin
 
