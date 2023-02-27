@@ -36,6 +36,15 @@
 // yarn create react-app .           -->       var olan dizin içine yeni klasör eklemeden proje oluşturur.
 // yarn start
 
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+//* yarn start komutu --> node_modules içinde scripts altında bulunan start keyine karşılık gelen hazır scripti çalıştır. 
+//* gelişmiş projelerde eklenen scriptler burada belirtilebilir, mesela 2 satırlık bir script burada tek kelimelik bir key ile tanımlanıp sonradan çağırılarak çalıştırılabilir.
+
 // ctrl + C                         -->     çalışan projeyi durdurur
 
 //* masaüstünde çalışmak bazen problem yaratabilir, ondan dolayı C,D gibi bir dizinde çalışmak daha iyi olur.
@@ -60,6 +69,8 @@
 //! yarn add axios bootstrap react-icons vs. peşpeşe yazınca tek serferde hepsini kurar.
 
 // dependencies'ten silmeden yarn remove axios ile de kaldırılabilir, böylece de package.json tekrar güncellenir ve  "dependencies" içinden axios silinir.
+
+//todo, çalışan proje ilave paket yüklemek için proje durdurulabilir, veya ikinci bir terminal açıp paket yüklemesi yapılabilir.
 
 //* public
 // klasöründe index.html var, yazdığımızı bütün kodlar, yapılan bütün componentler id="root" olan div içine kayıt edilir.
@@ -106,7 +117,15 @@ root.render(<App />);
 //!----------------------------------------
 //! Pull edilen, internetten indirilen bir bir projenin çalıştırılması
 //!----------------------------------------
+// package.json dosyası ile aynı dizinde olacak şekilde,
 // yarn , yarn install , npm i , npm install
 // bu komutlardan herhangi birisi çalıştırılarak package.json / dependicies içindeki paketler kurulur ve 
 // node_modules dosyası tekrardan kurulur
 // yarn start ile proje çalıştırılır.
+
+
+//* vscode ayarı;
+// sol alt köşedeki çark simgesi(ayarlar), settings, açılan search bar'a (emmet) yaz
+// Emmet: Include Languages bölümüne; key:javascript - value:javascriptreact bunları yaz
+// HTML'deki emmetleri JSX içinde kullanmaya yarar, h1 container yazınca clasName container olan bir h1 elementi oluşur.
+// ES7 extansion yükle
