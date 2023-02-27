@@ -1,6 +1,10 @@
 //? react nedir?
 // 2011 yılında facebook tarafından geliştirilen component based, kullanıcı arayüzü oluşturan  hızlı bir javascript (library) kütüphanesidir. En popüler js kütüphanesidir. Amacı dinamik web sayfalarını daha hızlı görüntüleyebilmektir. Virtual DOM özelliği sayesinde daha az render ile daha hızlı çalışır.
 
+//* Virtual DOM nasıl çalışıyor
+// DOM'un mevcut halinin bir kopyasını alıp client'ın RAM belleğe koyuyor, ve onunda snapshot'ını alıyor, yani 2 kopya var elinde. (esas DOM browserda tutulur.) Bir değişiklik yapıldığında snapshot ile kopya DOM karşılaştırıyor, (Diff algoritması vasıtasıyla ) bu karşılaştırmanın RAM'de yapılması çok daha hızlı olmasını sağlıyor, çünkü DOM-Api'de olsa işlemler zaman alıyor. Daha sonra değişikliğin etkilediği componentleri bulup tek seferde toplu şekilde (batch-update) onları değiştiriyor/render ediyor ve DOM'a basıyor.
+
+
 // react-native (ios-android) öğrenmek için biraz çalışma yapıp sonra web / app dönüşümü yapılabilir.
 
 //* library - framework
