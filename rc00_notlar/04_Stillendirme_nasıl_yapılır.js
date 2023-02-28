@@ -1,3 +1,5 @@
+// rc02 basicStyling dersi
+
 //! JSX'de stillendirme farklli sekillerde yapilabilr.
 //* 1-) Harici CSS sayfalari ile (index.css, app.css v.b)
 //* 2-) Inline stillendirme ile (style = {{color:"red"}})
@@ -11,8 +13,7 @@
 
 //* 1- Harici stillendirme dosyasi
 // hiç birşey import etmeden zaten default var olan index.css içerisinden stillendirme verilebilir, çünkü index.css index.js'ye bağlı ve index.js en baba component
-
-// veya ilave bir harici css dosyası oluşturup hangi component de kullanaksak orada import edebiliriz.
+// veya ilave bir harici css dosyası oluşturup hangi component de kullanacaksak orada import edebiliriz.
 import "./Content.css";
 
 // ? Dahili bir resim eklemek icin import yapmak gereklidir.
@@ -51,6 +52,7 @@ const Content = () => {
             {/* Dahili bir resim eklemek icin import yapmak gereklidir.  src={img2}  */}
             <img style={imgStyle} src={img2} alt="img2" />
 
+            {/* 1- Harici stillendirme dosyasi */}
             {/* import "./Content.css" , harici dosya ile class'a stil verilebilir.*/}
             {/* .par-1 {
                         font-family: 'Courier New', Courier, monospace;
@@ -59,7 +61,6 @@ const Content = () => {
                         color: blue;
                         } - Content.css içeriği  */}
             {/* class isimleri icin className kullanilir - className="par-1" */}
-
             <p className="par-1">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
                 quaerat exercitationem repellendus, perspiciatis quo beatae
