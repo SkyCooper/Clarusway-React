@@ -20,6 +20,7 @@ import Header from "./components/Header.js";
 //? App componentinin function declaration ile tanimlanmasi
 function App() {
   return (
+    //? Stillendirme yapılmayacaksa parent container için fragment <> kullanılabilir.
     <>
       <Header />
       <Content/>

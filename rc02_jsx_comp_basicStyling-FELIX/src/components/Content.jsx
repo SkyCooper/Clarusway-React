@@ -1,7 +1,7 @@
 //* JSX'de stillendirme farklli sekillerde yapilabilr.
 //* 1-) Harici CSS sayfalari ile (index.css, app.css v.b)
 //* 2-) Inline stillendirme ile (style = {{color:"red"}})
-//* 3- )Local veya global degiskenler ile.
+//* 3-) Local veya global degiskenler ile.
 
 //! NOTLAR:
 //* Stillendirme icin property-value(object) yapisi kullanilir.
