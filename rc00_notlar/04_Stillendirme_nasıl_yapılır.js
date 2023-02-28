@@ -3,7 +3,7 @@
 //! JSX'de stillendirme farklli sekillerde yapilabilr.
 //* 1-) Harici CSS sayfalari ile (index.css, app.css v.b)
 //* 2-) Inline stillendirme ile (style = {{color:"red"}})
-//* 3-) Local veya global degiskenler ile.
+//* 3-) Local veya global degiskenler ile. (js obje formatında)
 
 //! NOTLAR:
 // Stillendirme icin property-value(object) yapisi kullanilir.
@@ -24,7 +24,7 @@ const Content = () => {
 
     //* 3-Local veya global degiskenler ile;
     // jsx alanı dışında component içinde js alanında tanımlanır.
-    // key/value şeklinde tanımlanır.
+    // key/value şeklinde obje olarak tanımlanır.
 
     const imgStyle = {
         display: "block",

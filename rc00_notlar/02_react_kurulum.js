@@ -1,7 +1,8 @@
 //* NodeJS
 // react kullanmak için NodeJS indirip, kurmak gerekli.
 // https://nodejs.org/en/download/
-// NodeJS google chorome üzerinde bulunan JS engine'nin locala alınmış hali, react js kullandığı için NodeJS'e ihtiyaç duyuyor.
+// NodeJS google chorome üzerinde bulunan JS engine'nin locala alınmış hali
+// react js kullandığı için NodeJS'e ihtiyaç duyuyor.
 
 // node -v
 // ile versiyon kontrolü yapılabilir. ( v16.17.1)
@@ -9,7 +10,8 @@
 
 //* npm
 // https://www.npmjs.com/
-// node package manager, node uygulamaları için paket yönetim sistemi, NodeJS kurulumu yapınca içinde npm ile birlikte geliyor.
+// node package manager, node uygulamaları için paket yönetim sistemi
+// NodeJS kurulumu yapınca içinde npm ile birlikte geliyor.
 // Bir nevi Node uygulamaları için AppStore, ihtiyaç duyulan uygulamalar buradan yükleniyor.
 
 // npm -v
@@ -18,7 +20,8 @@
 
 //* yarn
 // https://www.npmjs.com/
-// yarn npm benzeri harici bir paket yönetim sistemi, NodeJS ile kurulu gelmiyor, sonradan kurmak gerekiyor.
+// yarn npm benzeri harici bir paket yönetim sistemi
+//? NodeJS ile kurulu gelmiyor, SONRADAN kurmak gerekiyor.
 // npm i -g yarn komutu ile yarn kurulumu yapılır.
 // yarn npm'e göre daha hızlı
 // yarn -v ile versiyon kontrolü yapılır.
@@ -87,6 +90,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // react kurulunca bazı kullanmadığımız dosyaları silerek sadeleştirme yapabiliriz, yapmazsak da problem olmaz yine de çalışır.
 //? sadeleştirme nasıl yapılır,
+//*src klasöründe
 // App.test.js dosyasını sil
 // logo.svg dosyasını sil
 // reportWebVitals.js dosyasını sil
@@ -112,6 +116,10 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
+
+//* public içinde;
+// sadece index.html kalsın gerisini sil,
+// eğer favicon istersen bir resim ekle ve adını favicon.ico diye değiştir.
 
 
 //!----------------------------------------

@@ -8,7 +8,7 @@
 
 //? Class Component örneği;
 // extends React.Component ve render() metodu kullanılır functiondan farklı olarak
-// rcc kısayol snippeti
+// rce (export altta) veya rcc (export yanında) kısayol snippeti
 // import Header from "./components/Header.js" --> ile kullanılacak yerde import edilir.(default export)
 // import {Header} from "./components/Header.js" --> ile kullanılacak yerde import edilir. (export ise süslü gerekir import ederken)
 
@@ -30,7 +30,7 @@ export default Header;
 // (1-function declaration, 2-function expression, 3-arrow function )
 
 // JSX icerisinde degiskenler {} icerisinde gosterilir. {new Date().getFullYear()}
-// rafce kısayol snippeti
+// rafce (export altta) veya rafc (export yanında) kısayol snippeti
 // import Footer from "./components/Footer.jsx"
 
 
