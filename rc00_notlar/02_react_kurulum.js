@@ -125,6 +125,7 @@ root.render(<App />);
 
 
 //* vscode ayarı;
+// terminali default bash olarak ayarla, (sağ alttan + yanındaki ok bas, açılan meüden, Select Default Profile, sonra açılan menüden Git Bash seç)
 // sol alt köşedeki çark simgesi(ayarlar), settings, açılan search bar'a (emmet) yaz
 // Emmet: Include Languages bölümüne; key:javascript - value:javascriptreact bunları yaz
 // HTML'deki emmetleri JSX içinde kullanmaya yarar, h1 container yazınca clasName container olan bir h1 elementi oluşur.
