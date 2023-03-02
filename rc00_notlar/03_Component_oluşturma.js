@@ -5,12 +5,22 @@
 //* kullanima kullanima acimiş olur. Kullanmak icin hedef dosyada import .... from "./..." ile import yapmak yeterlidir.
 
 
+//? export / export default farkı
+//* export default
+//todo, import Header from "./components/Header.js" --> ile kullanılacak yerde import edilir.(default export)
+// import BASLIK from "./components/Header.js" --> default kullanınca import ederken isim değitirilebilir,
+// o zaman kullanılacak yerde component yeni ismi ile (BASLIK) çağırılır.
+
+//* export
+//todo, import {Header} from "./components/Header.js" --> ile kullanılacak yerde import edilir. (export ise süslü gerekir import ederken)
+// direk export edilen component ismi değiştirilemez, aynen çağrılır (süslü içinde) ve kullanılır.
+
+
 
 //? Class Component örneği;
 // extends React.Component ve render() metodu kullanılır functiondan farklı olarak
 // rce (export altta) veya rcc (export yanında) kısayol snippeti
-// import Header from "./components/Header.js" --> ile kullanılacak yerde import edilir.(default export)
-// import {Header} from "./components/Header.js" --> ile kullanılacak yerde import edilir. (export ise süslü gerekir import ederken)
+
 
 class Header extends React.Component {
     render() {

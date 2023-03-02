@@ -98,7 +98,6 @@ const Person = (props) => {
     </div>
   );
 };
-
 export default Person;
 
 
@@ -128,5 +127,4 @@ const Person = ({ name, img, tel }) => {
     </div>
   );
 };
-
 export default Person;

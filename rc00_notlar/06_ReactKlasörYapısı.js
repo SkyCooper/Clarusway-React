@@ -6,7 +6,7 @@
 
 // components : EN ÖNEMLİ klasör budur, her component bir alt klasörde tutulsa daha güzel olur
 
-// Button : mesela bu bir alt dosya ise içinde Button.jsx, button.test.js, button.css vs. bütün dosyalar bu klasörde olur.
+// button : mesela bu bir alt dosya ise içinde Button.jsx, button.test.js, button.css vs. bütün dosyalar bu klasörde olur.
 
 // pages : sayfaların kodları böyle bir klasörde tutulur bunlarda alt klasörlere ayrılabilir, Home, Login, Register vs. 
 
@@ -17,3 +17,5 @@
 // routes : routing ile ilgili işlemler
 
 // style : stillendirme ile ilgili dosyalar.
+
+//! klasör isimleri best-practice küçük harf ile yazılır.
