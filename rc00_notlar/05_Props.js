@@ -101,7 +101,7 @@ const Person = (props) => {
 export default Person;
 
 
-//? 2 tek componenti map ile kullanma;
+//? 2-a tek componenti map ile kullanma - tek tek gönderme;
 function App() {
     return (
         <div>
@@ -119,6 +119,61 @@ function App() {
 export default App;
 
 const Person = ({ name, img, tel }) => {
+  return (
+    <div>
+      <p>Merhaba {name}</p>
+      <img style={{ width: "200px" }} src={img} alt="img1" />
+      <p>{tel}</p>
+    </div>
+  );
+};
+export default Person;
+
+
+//? 2-b tek componenti map ile kullanma - hepsini birden gönderme;
+function App() {
+    return (
+        <div>
+      {data.map((person,index) => (
+        <Person
+          key={index}
+          person={person}
+        />
+      ))}
+        </div>
+    );
+}
+export default App;
+
+const Person = ({ person }) => {
+  const {name, img, tel} = person
+  return (
+    <div>
+      <p>Merhaba {name}</p>
+      <img style={{ width: "200px" }} src={img} alt="img1" />
+      <p>{tel}</p>
+    </div>
+  );
+};
+export default Person;
+
+//? 2-c tek componenti map ile kullanma - hepsini birden gönderme(SPREAD YAPARAK);
+function App() {
+    return (
+        <div>
+      {data.map((person,index) => (
+        <Person
+          key={index}
+          {...person}
+        />
+      ))}
+        </div>
+    );
+}
+export default App;
+
+const Person = ( person ) => {
+  const {name, img, tel} = person
   return (
     <div>
       <p>Merhaba {name}</p>
