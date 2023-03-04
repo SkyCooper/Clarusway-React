@@ -34,8 +34,7 @@ export default Events;
 
 
 
-
-
+//! çok fazla burayta bakmaya gerek yok, artık kullanılımıyor.
 //* ================= CLASS COMPONENTS AND STATE ====================
 // React'da Class-Component'ler ES6 class yapisina dayanmaktadir.
 // Cok fazla boilerplate kod icermektedir.
@@ -113,13 +112,11 @@ export default Counter;
 //todo, aynısının hook ile yapılması
 
 //* ==================== HOOKS ===============================
-//! Hook'lar fonksiyonel component'ler icerisinde state'leri kullanmamiza
-//! olanak saglayan ozel fonksiyonlardir.
-// React 16.8 versiyonu ile gelmistir ve geldikten sonra Class-componentler'in
-// kullanimi cok azaltmistir.
+//! Hook'lar fonksiyonel component'ler icerisinde state'leri kullanmamiza olanak saglayan ozel fonksiyonlardir.
+// React 16.8 versiyonu ile gelmistir ve geldikten sonra Class-componentler'in kullanimi cok azaltmistir.
 
-//? React'ta useState(), useEffect(), useContext() gibi bir cok built-in
-//? Hook bulunmaktadir. Ayrica custom hook tanimlamak da mumkundur. bütün isimler use ile başlar.
+//? React'ta useState(), useEffect(), useContext() gibi bir cok built-in Hook bulunmaktadir.
+//? Ayrica custom hook tanimlamak da mumkundur. bütün isimler use ile başlar.
 
 //* Hook Kullanim Kurallari:
 //* 1. İlk olarak import edilmeliler. import { useState } from "react";
@@ -138,8 +135,8 @@ const UseStateCounter = () => {
   //* useState en cok kullanilan Hook'tur.
   //* Bir state'in degisken, dizi ve obje ile kullanilabilmesine olanak saglar.
   //? useState hook'u bir dizi dondurur.Bu dizi array dest ile acilabilir.
-  //?  Acilan dizinin 1.elemani state degiskenidir.                         --> count
-  //?  2.si ise state'i degistirmeye izin veren bir setter metodudur.       --> setCount
+  //? Acilan dizinin 1.elemani state degiskenidir.                         --> count
+  //? 2.si ise state'i degistirmeye izin veren bir setter metodudur.       --> setCount
   //? useState parametre olarak state'in ilk degerini alir.
 
   const [count, setCount] = useState(0); //? arr destr.
