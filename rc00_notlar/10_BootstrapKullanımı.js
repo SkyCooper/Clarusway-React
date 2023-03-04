@@ -2,7 +2,7 @@
 //* https://react-bootstrap.github.io/getting-started/introduction
 
 //! 1- ilkel kullanım, yani Html'deki gibi kullanım, BOOTSTRAP İÇİN;
-//todo, birinci yöntem  (rc05_events)
+//todo, birinci yöntem  (rc05_events) (rc06_forms)
 yarn add bootstrap 
 // css linkini App.js veya index.js içine yapıştır.
 import 'bootstrap/dist/css/bootstrap.min.css';
