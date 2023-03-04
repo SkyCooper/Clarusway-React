@@ -154,6 +154,7 @@ const UseStateCounter = () => {
     setCount(count + 1);
   };
 
+  //! veya aşağıda onClick içinde short-circut yapılır.
   // const dec = () => {
   //   if (count > 0) {
   //     setCount(count - 1);
