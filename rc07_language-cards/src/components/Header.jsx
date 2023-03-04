@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap";
+// import Container from "react-bootstrap/Container";   // böyle de olur.
 import Image from "react-bootstrap/Image";
 import reactLogo from "../assets/react.svg";
 
