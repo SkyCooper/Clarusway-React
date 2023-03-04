@@ -44,6 +44,7 @@ import Container from "react-bootstrap/Container";
 // hem klasik clasName kullanılabilir, --> className="rounded-3 mt-4 p-4"
 // hemde react-bootstrap propları kullanılabilir. --> sm={6} md={4} lg={3}  veya  variant="primary" veya fluid
 // hagi element için hangi prop kullanılacak sitesinde yazıyor. 
+// çift süslü içinde key/value olarak style verilebilir --> style={{ background: "#f48b29" }}
 
 <Container className="rounded-3 mt-4 p-4" style={{ background: "#f48b29" }}>
   <h1 className="text-white my-2">Languages</h1>
