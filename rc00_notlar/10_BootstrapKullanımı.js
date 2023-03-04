@@ -21,26 +21,45 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 //! 2- Component based kullanım, REACT-BOOTSTRAP İÇİN;  (rc07_languageCard)
-yarn add react-bootstrap 
+//* https://react-bootstrap.github.io/getting-started/introduction
 
-//* (bu komut ikisini biredn kurar)
-yarn add react-bootstrap bootstrap 
+yarn add react-bootstrap bootstrap
+//* (bu komut ikisini bireden kurar)
 
 // css linkini App.js veya index.js içine yapıştır.
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //? component olarak eklemek için,
 // 1nci yöntem ile container eklemek için, süslü içinde 
-import {Container} from "react-bootstrap"  
-// 2nci yöntem ile container eklemek için, veya böyle (daha doğru kullanım bu)  
+import {Container} from "react-bootstrap"
+// aslında bu şöyle demek, react-bootstrap kütüphanesinin tamamını ekle, içinden Container al
+
+// 2nci yöntem ile container eklemek için, 
 import Container from "react-bootstrap/Container";
+// aslında bu şöyle demek, react-bootstrap kütüphanesinden sadece Container al
+//*  (daha doğru kullanım bu) , daha hızlı çalışır, loadig time kısaltır,
+
+
+// artık component olarak import edilen bootsprap elementlerinde;
+// hem klasik clasName kullanılabilir, --> className="rounded-3 mt-4 p-4"
+// hemde react-bootstrap propları kullanılabilir. --> sm={6} md={4} lg={3}  veya  variant="primary" veya fluid
+// hagi element için hangi prop kullanılacak sitesinde yazıyor. 
+
+<Container className="rounded-3 mt-4 p-4" style={{ background: "#f48b29" }}>
+  <h1 className="text-white my-2">Languages</h1>
+  <Row className="g-3 justify-content-center">
+    <Col sm={6} md={4} lg={3} key={index}>
+      <Language {...item}/>
+    </Col>
+  </Row>
+</Container>
 
 
 //! BOOTSTRAP KURDUKTAN SONRA, AÇILIR MENULER VB ÇALIŞMASI İÇİN;
 // script linklerini index.html' de body kapanış tagı üzerine ekle,
  
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"
-    ></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+  crossorigin="anonymous"
+></script>
