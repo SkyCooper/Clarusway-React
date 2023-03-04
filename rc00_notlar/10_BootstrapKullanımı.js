@@ -2,7 +2,7 @@
 //* https://react-bootstrap.github.io/getting-started/introduction
 
 //! 1- ilkel kullanım, yani Html'deki gibi kullanım, BOOTSTRAP İÇİN;
-//todo, birinci yöntem
+//todo, birinci yöntem  (rc05_events)
 yarn add bootstrap 
 // css linkini App.js veya index.js içine yapıştır.
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,7 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-//! 2- Component based kullanım, REACT-BOOTSTRAP İÇİN;
+//! 2- Component based kullanım, REACT-BOOTSTRAP İÇİN;  (rc07_languageCard)
 yarn add react-bootstrap 
 
 //* (bu komut ikisini biredn kurar)
