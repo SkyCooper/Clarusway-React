@@ -4,7 +4,7 @@
 // NodeJS google chorome üzerinde bulunan JS engine'nin locala alınmış hali
 // react js kullandığı için NodeJS'e ihtiyaç duyuyor.
 
-// node -v
+node -v
 // ile versiyon kontrolü yapılabilir. ( v16.17.1)
 // node versiyonunu güncellemek için tekrar indirip kurmak gerekli
 
@@ -14,30 +14,33 @@
 // NodeJS kurulumu yapınca içinde npm ile birlikte geliyor.
 // Bir nevi Node uygulamaları için AppStore, ihtiyaç duyulan uygulamalar buradan yükleniyor.
 
-// npm -v
+npm -v
 // ile versiyon kontrolü yapılabilir. (8.19.2 )
-// npm i -g npm komutu ile tekrar npm kurup kendini günceller.
+npm i -g npm
+// komutu ile tekrar npm kurup kendini günceller.
 
 //* yarn
 // https://www.npmjs.com/
 // yarn npm benzeri harici bir paket yönetim sistemi
 //? NodeJS ile kurulu gelmiyor, SONRADAN kurmak gerekiyor.
-// npm i -g yarn komutu ile yarn kurulumu yapılır.
+npm i -g yarn 
+// komutu ile yarn kurulumu yapılır.
 // yarn npm'e göre daha hızlı
-// yarn -v ile versiyon kontrolü yapılır.
+yarn -v
+// ile versiyon kontrolü yapılır.
 
 
 //! ---------------------------------
 //! SIFIRDAN PROJE OLUŞTURMAK İÇİN;
 //! ---------------------------------
-// yarn create react-app my-app      -->       var olan dizine my-app isimli proje oluşturur.
-// npx create-react-app my-app  (eğer yarn yüklü ise npx'de arka planda yarn kullarak derleme yapar, yoksa default npm kullanır)
+yarn create react-app my-app      -->       // var olan dizine my-app isimli proje oluşturur.
+npx create-react-app my-app                 // (eğer yarn yüklü ise npx'de arka planda yarn kullarak derleme yapar, yoksa default npm kullanır)
 
-// cd my-app                        -->         oluşturulan proje dizininde konumlan
-// npm start (or yarn start)        -->         projeyi çalıştır.
+cd my-app                        -->        // oluşturulan proje dizininde konumlan
+npm start (or yarn start)        -->        // projeyi çalıştır.
 
-// yarn create react-app .           -->       var olan dizin içine yeni klasör eklemeden proje oluşturur.
-// yarn start
+yarn create react-app .           -->       // var olan dizin içine yeni klasör eklemeden proje oluşturur.
+yarn start
 
   "scripts": {
     "start": "react-scripts start",
@@ -48,7 +51,7 @@
 //* yarn start komutu --> node_modules içinde scripts altında bulunan start keyine karşılık gelen hazır scripti çalıştır. 
 //* gelişmiş projelerde eklenen scriptler burada belirtilebilir, mesela 2 satırlık bir script burada tek kelimelik bir key ile tanımlanıp sonradan çağırılarak çalıştırılabilir.
 
-// ctrl + C                         -->     çalışan projeyi durdurur
+ctrl + C                         -->    // çalışan projeyi durdurur
 
 //* masaüstünde çalışmak bazen problem yaratabilir, ondan dolayı C,D gibi bir dizinde çalışmak daha iyi olur.
 //! proje ismi verirken;
@@ -61,11 +64,13 @@
 
 //? React içindeki dosya / klasörler,
 //* node_modules
-// klasörü içinde react'ın arka planda kullandığı ek kütüphanelerin dosyası vardır. gerekli olan / olabilecek herşey var
+// klasörü içinde react'ın arka planda kullandığı ek kütüphanelerin dosyası vardır.
+// gerekli olan / olabilecek herşey var
 // .gitignore dosyasından dolayı github'a bu büyük dosya gitmez.
 
 //* package.json dosyası
-// projenin içinde neler var onu özetleyen bir dosya gibidir. sonradan kurulan bütün paketler "dependencies" içine eklenir.
+// projenin içinde neler var onu özetleyen bir dosya gibidir.
+// sonradan kurulan bütün paketler "dependencies" içine eklenir.
 // mesela yarn add axios ile axios kurulunca dependencies içine eklenir. 
 // 1 - eğer kaldırmak istersek dependencies içinden ilgili satırı silip yarn veya yarn install / npm install yazınca tekrar projeyi derler ve dependencies içinde axios olmadığı için onu yüklemden son haline getirir.
 // 2 - veya tam tersi dependicies içine "axios": "^1.3.4" yazıp, yarn veya yarn install / npm install yazınca tekrar projeyi derler ve dependencies içinde axios olduğundan  onu yükleyip son haline getirir.
@@ -76,7 +81,8 @@
 //todo, çalışan proje ilave paket yüklemek için proje durdurulabilir, veya ikinci bir terminal açıp paket yüklemesi yapılabilir.
 
 //* public
-// klasöründe index.html var, yazdığımızı bütün kodlar, yapılan bütün componentler id="root" olan div içine kayıt edilir.
+// klasöründe index.html var, yazdığımızı bütün kodlar, yapılan bütün componentler
+// id="root" olan div içine kayıt edilir.
 <div id="root"></div>
 
 //* src 
@@ -88,7 +94,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // ve en son bütün kodlar index.js sayesinde index.html içindeki id'si root olan div içine basılır.
 
 
-// react kurulunca bazı kullanmadığımız dosyaları silerek sadeleştirme yapabiliriz, yapmazsak da problem olmaz yine de çalışır.
+// react kurulunca bazı kullanmadığımız dosyaları silerek sadeleştirme yapabiliriz,
+// yapmazsak da problem olmaz yine de çalışır.
 //? sadeleştirme nasıl yapılır,
 //*src klasöründe
 // App.test.js dosyasını sil
@@ -132,8 +139,10 @@ root.render(<App />);
 // yarn start ile proje çalıştırılır.
 
 
-//* vscode ayarı;
-// terminali default bash olarak ayarla, (sağ alttan + yanındaki ok bas, açılan meüden, Select Default Profile, sonra açılan menüden Git Bash seç)
+//* vscode ayarları;
+// terminali default bash olarak ayarla,
+// (sağ alttan + yanındaki ok bas, açılan meüden, Select Default Profile, sonra açılan menüden Git Bash seç)
+
 // sol alt köşedeki çark simgesi(ayarlar), settings, açılan search bar'a (emmet) yaz
 // Emmet: Include Languages bölümüne; key:javascript - value:javascriptreact bunları yaz
 // HTML'deki emmetleri JSX içinde kullanmaya yarar, h1 container yazınca clasName container olan bir h1 elementi oluşur.
