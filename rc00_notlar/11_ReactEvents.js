@@ -67,3 +67,10 @@ const handleChange = (e) => {
 
 // <button onClick={(event)=>handleChange(event)} className="btn btn-danger"> Change </button>
 // sanki (event) varmış gibi davranır, yazmaya gerek olmadan
+
+//! kopyalamayı yasaklamak için;
+<p onCopy={(e) => {
+    e.preventDefault();
+    alert("you cant copy document");}}>
+{inputValue}
+</p>

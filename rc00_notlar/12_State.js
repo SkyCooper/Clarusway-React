@@ -129,6 +129,12 @@ export default Counter;
 //?    https://reactjs.org/docs/hooks-rules.html
 //* =============================================================
 
+//! hangi component render oluyor, veya hangi state değişiyor bunu daha iyi görmek için;
+//! inspect yap, Elements sekmesini seç, daha sonra alttaki sekme grubundan;
+//!  Rendering seç ve Paint flashing işaretle
+
+
+
 import { useState } from "react";
 
 const UseStateCounter = () => {
@@ -207,3 +213,34 @@ const UseStateCounter = () => {
 };
 
 export default UseStateCounter;
+
+
+//todo, state için obje formatı kullanırsa;
+const [values, setValues] = useState({
+  username : "",
+  email : "",
+  pass : ""
+})
+
+//destr edilebilir..
+const {username, email, pass} = values
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  alert(`username: ${username} email: ${email} password: ${pass}`);
+
+  // formu silmek için;
+  setValues({
+      username: "",
+      email: "",
+      pass: "",
+  });
+};
+
+// önce form spread ile açılır, sonra key seçmek için [] ile değişken olarak yazılır, value e.target.value olur
+const handleChange = (e) => {
+setValues({...values, [e.target.id]:e.target.value})
+};
+
+// [e.target.id] kullanılacaksa id ile key state objesi içindeki key'ler aynı olmalı username
+<input id="username" onChange={handleChange} value={username} />
