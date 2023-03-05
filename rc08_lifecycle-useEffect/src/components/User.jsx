@@ -18,19 +18,20 @@ const User = () => {
   const { name, dob, email, picture } = user;
 
   return (
-    <div>
-      <h1>
-        {/* Optional Chaining */}
-        {/* name?.first?.second */}
-        {name?.first} {name?.last}
-      </h1>
-      <img className="rounded-circle" src={picture?.large} alt="img" />
-      <p>{email}</p>
-      <h5>{new Date(dob?.date).toLocaleDateString("tr-TR")}</h5>
-      <button className="btn btn-danger" onClick={getUser}>
-        Get User
-      </button>
-    </div>
+      <div>
+          <h1>
+              {/* Optional Chaining */}
+              {/* name?.first?.second */}
+              {name?.first} {name?.last}
+          </h1>
+          <img className="rounded-circle" src={picture?.large} alt="img" />
+          <p>{email}</p>
+          {/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl */}
+          <h5>{new Date(dob?.date).toLocaleDateString("tr-TR")}</h5>
+          <button className="btn btn-danger" onClick={getUser}>
+              Get User
+          </button>
+      </div>
   );
 };
 
