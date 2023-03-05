@@ -7,10 +7,10 @@
 //! Lifecycle önce class component için yapılmış, sonra func. comp. için hook olarak kullanılmış, --> useEffect
 
 //! en basit hali ile Lifecycle 3 seviyedir,
-// Mounting         --> doğma
-// Updating         --> yaşama
-// Unmounting       --> ölme gibi düşünülebilir,
-// hepisinden sonra olacaklar, yani Mount olduktan sonra, update olduktan sonra vs.
+        // Mounting         --> doğma
+        // Updating         --> yaşama
+        // Unmounting       --> ölme gibi düşünülebilir,
+        // hepisinden sonra olacaklar, yani Mount olduktan sonra, update olduktan sonra vs.
 
 //* Lifecycle metotlari componetnlerin DOM'da varoldugu sure boyunca
 //* uzerinde islem yapmamizi imkan saglayan ozel React mototlaridir.
@@ -52,7 +52,7 @@ class LifeCycleMethods extends React.Component {
         console.log("3-Mounted");
     }
 
-    //! 4-) Bu metot ilk render haric diger tum render'lardan sonra cagriilir.
+    //! 4-) Bu metot ilk render haric diger tum render'lardan sonra cagriilir. 
     //! -- çocuğa doğumgünü yapılması, ilk doğum hariç diğer hepsinde yapılır --
     //! prevState ve prevProps degerlerini parametre olarak alabilir.
     componentDidUpdate(prevProps, prevState) {

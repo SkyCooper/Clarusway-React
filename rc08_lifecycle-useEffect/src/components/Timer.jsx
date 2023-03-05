@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+
+//! bu dosya derste anlatılmadı, Lifecylce için ilave örnek olsun diye incelemek için hazır verildi.
 class Timer extends Component {
   constructor(props) {
     super(props);
