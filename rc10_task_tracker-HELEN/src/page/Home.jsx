@@ -8,6 +8,7 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [text, setText] = useState("Hide Task Bar");
   const [color, setColor] = useState("green");
+  
   const handleClick = () => {
     setIsOpen(!isOpen);
     const buttonText = isOpen ? "Show Task Bar" : "Hide Task Bar";
@@ -16,8 +17,14 @@ const Home = () => {
     setColor(buttonColor);
   };
 
+  //! burada task eklemek/çıkarmak için;
+  //! 1 - data.js/helper.js gibi gibi bir dosya kullalılabilir
+  //! 2 - local storage kullalılabilir
+  //! 3 - bir api kullanılabilir. (Derste böyle yapıldı)
+  
   const url = "https://6351820e3e9fa1244e6084b7.mockapi.io/api/tasks";
   const [task, setTask] = useState([]);
+  
   const getTask = async () => {
     try {
       const { data } = await axios(url);
