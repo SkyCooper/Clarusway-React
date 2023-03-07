@@ -27,7 +27,7 @@ const AddTutorial = ({ getTutorials }) => {
 
   //! POST - CRUD (Create)
   const addTutorial = async (newTutor) => {
-    const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
+    const url = "http://coopersky.pythonanywhere.com/tutorials/";
     try {
       await axios.post(url, newTutor);
       // sadece axios yazarsak get işlemi yapar, onun için başına POST yazıyoruz.

@@ -6,8 +6,9 @@ import { useEffect, useState } from "react";
 const Home = () => {
   const [tutorials, setTutorials] = useState([]);
 
+  const url = "http://coopersky.pythonanywhere.com/tutorials/";
   // const url = "https://tutorials-api-cw.herokuapp.com/api/tutorials";  //noah hoca
-  const url = "https://axios-example-cw.herokuapp.com/api/tutorials";     //tek sayılar
+  // const url = "https://axios-example-cw.herokuapp.com/api/tutorials";     //tek sayılar
   // const url = "https://cw-axios-example.herokuapp.com/api/tutorials";  //çift sayılar.
   // readme içerisinde 3 tane API url var, 1 tanesini kullan.
 
