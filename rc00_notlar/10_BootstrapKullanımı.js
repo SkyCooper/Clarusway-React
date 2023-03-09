@@ -24,7 +24,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //* https://react-bootstrap.github.io/getting-started/introduction
 
 yarn add react-bootstrap bootstrap
-//* (bu komut ikisini bireden kurar)
+//* (bu komut ikisini birden kurar)
 
 // css linkini App.js veya index.js içine yapıştır.
 import 'bootstrap/dist/css/bootstrap.min.css';
