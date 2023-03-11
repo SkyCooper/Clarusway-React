@@ -23,6 +23,8 @@
 // library, önden yazılmıl kodları vardır, istediğimizi alıp kullanabiliriz.
 // framework, herşey kendi içinde var ve bunun dışına çıkılmaz(ekosistem)-öğrenmesi daha zor,zorunlulukları var.
 
+//? react bir library(yani kütüphane), framework değil, bundan dolayı içerisinde herşey hazır olarak bulunmuyor, serbest olarak isteyen istediğini yükleyip/ekleyip kullanabiliyor.
+
 //* JSX - Javascript Xml
 // HTML ve JavaScript kodlarının aynı dosyada kullanılmasıdır.
 // JS dosyasında HTML yazar gibi kod yazmayı sağlıyor. Okuması ve anlaması daha kolaydır.
