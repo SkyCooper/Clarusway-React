@@ -35,8 +35,8 @@ function App() {
         <Route path="/people" element={<People />} />
         <Route path="/people/:id" element={<PersonDetail />} />
         {/* : dan sonra gelen 'id' bir parametre/değişkendir, (dinamik bir değerdir yani) PersonDetaile aktarılır. */}
-        {/* <Route path="/paths" element={<Paths />} /> */}
 
+        {/* <Route path="/paths" element={<Paths />} /> */}
         {/* //!Nested Route yapma, */}
         <Route path="/paths" element={<Paths />}>
           {/* pathler relative verildi */}
