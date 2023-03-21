@@ -281,7 +281,7 @@ const navigate = useNavigate();
 </div>
 
 
-//? NESTED ROUTE
+//? NESTED ROUTE  (RC-13 --- 2.36)
 //* https://reactrouter.com/en/main/start/overview
 //* https://remix.run/_docs/routing
 
@@ -320,7 +320,7 @@ const Paths = () => {
 export default Paths;
 
 
-//? PRIVATE ROUTER,
+//? PRIVATE ROUTER, (RC-13 --- 3.06)
 
 import { Navigate, Outlet } from "react-router-dom";
 
