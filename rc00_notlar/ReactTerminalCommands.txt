@@ -166,6 +166,8 @@ yarn add @mui/styles
 
 
 TAILWIND İÇİN;
+https://tailwindcss.com/docs/guides/create-react-app
+
 1- yarn add -D tailwindcss postcss autoprefixer
 2- npx tailwindcss init -p
 

@@ -40,6 +40,7 @@ const People = () => {
 
               // onClick={() => navigate(`${id}`)}
               //* relative path, yani var olan adres sonuna ekleme yapıyor.
+              // eğer / slash yoksa bunu relative algılar, daha kullanılışlıdır, path güncellemesi daha kolay olur,
 
               //! yani açılan sayfada id'ye göre yeniden fetch yapma
               //! state ile var olan person objesini yollamaya gerek yok.

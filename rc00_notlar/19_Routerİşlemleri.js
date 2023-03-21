@@ -41,8 +41,18 @@ import { Routes, Route } from "react-router-dom";
 // Nav-Footer ==> amca gibi kodlanabilir.
 
 //? SSR - CSR
-// Server Side Routing ----- Client Side Routing 
+// Server Side Routing ----- Client Side Routing
 // react-rooter uygulamalarında server-side-routing (SSR) değil client-side-routing (CSR)  yapılıyor. yani ilk seferde bütün bilgiler kullanıcıya ham dosyalar olarak geliyor ve onun bilgisayarında parse ediliyor. Her defasında refresh olmuyor. Bir kere yüklendikten sonra hızlıca sayfa geçişi yapılabiliyor. CSR SEO(SearchEngineOptimization) açısında uygun değil, arama motorlarının işini zorlaştırıyor.  ayrıca harici kütüphaneler kullanmak gerekiyor(react-helmet gibi). CSR server üzerinden yükü alır, fakat loading-time biraz uzun olabilir.(Lazy-Loading kavramı burada devreye giriyor.)
+
+//? Loading time kısaltmak, sayfanın daha hızlı çalışması için,
+//* https://legacy.reactjs.org/docs/code-splitting.html
+// Code Splitting kavramı incelenebilir.
+// Before:
+// import OtherComponent from './OtherComponent';
+
+// After:
+// const OtherComponent = React.lazy(() => import('./OtherComponent'));
+//* yani hemen import etme, ihtiyaç olduğu zaman import et demek,
 
 // Single page application yani kısa adıyla SPA, tek HTML sayfası yükleyen bir uygulamadır ve uygulamanın çalışması için gerekli tüm dosyaları (JavaScript, CSS vb) içerir. Sayfa veya sonraki sayfalarla olan herhangi bir etkileşim için servera gidip gelmesi gerektirmez; bu da sayfanın yeniden yüklenmediği anlamına gelir.
 
@@ -71,7 +81,7 @@ import { Routes, Route } from "react-router-dom";
 // to, probunu kullanır.
 // <a/> tagı kullanılırsa router dışına çıkmış olur. ve her tıklamada refresh olur
 // Link NavLİnk kullanınca sayfa geçişi hızlı olur ve refresh olmaz,
-//* Link NavLink farkı active olup olmadığını fark etmesidir.
+//! Link NavLink farkı active olup olmadığını fark etmesidir.
 // yani tıklandı mı, tıklanmadı mı? renk değişiyor. NavLinkte style={({ isActive }) probu var, 6.4 ten dolayı home herzaman kırmızı, yeniden yarn add reac-router-dom@6.3 yapıp yarn start yapınca düzeldi..
 
 
@@ -120,6 +130,7 @@ const Nav = () => {
 
               // onClick={() => navigate(`${id}`)}
               //* relative path, yani var olan adres sonuna ekleme yapıyor.
+              // eğer / slash yoksa bunu relative algılar, daha kullanılışlıdır, path güncellemesi daha kolay olur,
 
               //! yani açılan sayfada id'ye göre yeniden fetch yapma
               //! state ile var olan person objesini yollamaya gerek yok.
@@ -153,7 +164,7 @@ const Nav = () => {
 
   //! önceden yapılan fetch kodlarını alıp people yerine person yazarak kodu güncelledi,
 
-  //! useState import et, ve sadece 1 aobje çekeceğimiz için state [] dizi olmasına gerek yok, "" null yapabiliriz.
+  //! useState import et, ve sadece 1 obje çekeceğimiz için state [] dizi olmasına gerek yok, "" null yapabiliriz.
 
   const [person, setPerson] = useState("");
   const [error, setError] = useState(false);
@@ -268,3 +279,67 @@ const navigate = useNavigate();
     Go Back
     </button>
 </div>
+
+
+//? NESTED ROUTE
+//* https://reactrouter.com/en/main/start/overview
+//* https://remix.run/_docs/routing
+
+//! 1- Router içineki işlem
+// Route self closing değil, sarmalayıcı olarak yazılır,
+// içindeki route'lar self closin olabilir.
+
+{/* //!Nested Route yapma, */ }
+<Route path="/paths" element={<Paths />}>
+  {/* pathler relative verildi */}
+  {/* <Route path="fullstack" element={<FullStack/>}/> */}
+  {/* //* aslında yukarıdaki gibi yazılır fakat o sayfada default birisinin gelmesini istiyorsak alttaki gibi path yerine index yazılır. böylece fullstack path açışında direk görünür. */}
+  <Route index element={<FullStack />} />
+  {/* <Route path="fullstack" element={<FullStack />} /> */}
+  {/* //* yukarıdaki kullanımda fullstack linki url'ye eklenir. */}
+  <Route path="aws" element={<Aws />} />
+</Route>
+
+
+//! 2- Component içineki işlem
+// <Outlet /> çağırılır,
+const Paths = () => {
+  const navigate = useNavigate();
+  return (
+    <div className="container mt-4">
+      <h1>
+        Online IT Courses to Become a Qualified IT Professional with Clarusway
+      </h1>
+
+      <Outlet />
+      {/* //todo, nested route oluşumunda açılacak olan yeni component için yer tutuyor */}
+    </div>
+  );
+};
+
+export default Paths;
+
+
+//? PRIVATE ROUTER,
+
+import { Navigate, Outlet } from "react-router-dom";
+
+//! 1- Router içinde nested bir route oluşturuyoruz,
+<Route path="/contact" element={<PrivateRouter />}>
+  <Route path="/contact" element={<Contact />} />
+  {/* yani contact sayfasına gelen mesela login olmamış ise önce privateContact sayfasına gitsin işlemlerini yapsın sonra contact sayfasına giriş yapabilsin */}
+</Route>
+
+
+//! 2- PrivateRouter isminde bir Component oluştur,
+const PrivateRouter = () => {
+  // const user = true;
+  //* yani kullanıcı giriş yaptıysa outleti yani App.js içindeki child componenti yani contactı göster.
+
+  const user = false;
+  //* yani kullanıcı giriş yapmadıysa Login sayfasını göster ve giriş yapmaya yönlendir.
+
+  return <div>{user ? <Outlet /> : <Navigate to="/login" />}</div>;
+};
+
+export default PrivateRouter;

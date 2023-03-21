@@ -50,7 +50,7 @@ function App() {
 
         {/* <Route path="*" element={<NotFound />} /> */}
         {/* <Route path="*" element={<Link to={"/"}/>} /> */}
-        {/* eğer adres yanlışsa Home gidilsin yapmak istiyoruz, fakat burada Roure seviyesinde/Component seviyesinde Link çalışmaz. */}
+        {/* eğer adres yanlışsa Home gidilsin yapmak istiyoruz, fakat burada Route seviyesinde/Component seviyesinde Link çalışmaz. */}
         <Route path="*" element={<Navigate to={"/"} />} />
         {/* Navigate componenti ile re-direct yapılabilir. */}
 
