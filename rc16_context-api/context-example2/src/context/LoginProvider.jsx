@@ -24,7 +24,7 @@ const LoginProvider = ({ children }) => {
   );
 };
 
-//! 2-CONSUMING CUSTOM HOOK
+//! 3-CONSUMING CUSTOM HOOK
 //? bizim yazdığımız bir hook react-hook'unu çağırıyorsa buna custom-hook denir.
 
 export const useLoginContext = () => {
