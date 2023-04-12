@@ -1,4 +1,4 @@
-// RC-19 Context API, (GLOBAL STATE MANAGEMENT)
+// RC-19 Context API, (GLOBAL STATE MANAGEMENT) - Global Yönetim Kütüphanesi
 
 // React;
 // Theme, yani tema kullanımında
